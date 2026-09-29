@@ -9,11 +9,11 @@
 
 ## 设计目标
 
-1. **Engine-agnostic 描述 + engine-specific 入口** —— metadata 跨引擎统一，但每个 template 物理上属于某个 engine
-2. **Agent 可读检索** —— `category` `tags` `bestFor` 让 agent 用 intent → template 匹配
-3. **Inputs 强类型** —— 用 JSON Schema，agent 可以 introspect 该填啥
-4. **License 可追溯** —— 不让用户被未知 license 模板 surprise（CC-BY-NC 的素材不能商用等）
-5. **预览资产指引** —— 静态预览图 / 视频示例位置统一，前端 / studio / agent 都能 render template card
+1. **Engine-agnostic 描述 + engine-specific 入口** -- metadata 跨引擎统一，但每个 template 物理上属于某个 engine
+2. **Agent 可读检索** -- `category` `tags` `bestFor` 让 agent 用 intent → template 匹配
+3. **Inputs 强类型** -- 用 JSON Schema，agent 可以 introspect 该填啥
+4. **License 可追溯** -- 不让用户被未知 license 模板 surprise（CC-BY-NC 的素材不能商用等）
+5. **预览资产指引** -- 静态预览图 / 视频示例位置统一，前端 / studio / agent 都能 render template card
 
 ---
 
@@ -296,7 +296,7 @@ export interface TemplateMetadata {
 | CC-BY-SA-4.0 | ✅ | ✅ (must SA) | needed | ⚠️ 须给用户 share-alike 警告 |
 | CC-BY-NC-4.0 | ❌ | ✅ | needed | ⚠️ 仅个人/非商用入口 |
 | GPL-3.0 | ✅ | ✅ (copyleft) | needed | ⚠️ 须给用户 copyleft 警告 |
-| Other | — | — | — | ❌ 拒绝收录 |
+| Other | - | - | - | ❌ 拒绝收录 |
 
 ---
 
@@ -312,7 +312,7 @@ JSON Schema 可以**运行时**校验 + 序列化传给 agent。TS interface 编
 
 ### 为什么 preview.poster 必填
 
-agent 跟用户对话时一定要能 paste 一个截图让用户秒选；没 poster 的 template 不收录。这是入门门槛，不是限制——降低用户决策成本。
+agent 跟用户对话时一定要能 paste 一个截图让用户秒选；没 poster 的 template 不收录。这是入门门槛，不是限制--降低用户决策成本。
 
 ### 为什么 performance 是可选 + 作者填
 
@@ -322,8 +322,8 @@ agent 跟用户对话时一定要能 paste 一个截图让用户秒选；没 pos
 
 ## Open Questions（v0.2 待定）
 
-1. **i18n** —— `name` `description` 多语言？建议 v0.2 加 `i18n: { zh-CN: { name, description } }`，v0.1 默认英文
-2. **变量 group** —— 复杂模板（>20 字段）需要分组渲染 UI；JSON Schema 标准的 `x-ui-order` / `x-ui-group` 扩展？
-3. **依赖图** —— 一个 template 能不能 include 另一个 template（transition + main 组合）？v0.1 不支持，每模板独立
-4. **变量来源** —— 是否预设 "data source" 类型让用户 paste CSV / Google Sheet URL？v0.1 只接 inline，外部数据靠 agent 自己拉
-5. **A/B 变体** —— 一个模板出多版（不同色 / 不同 motion）共享同源代码？v0.2 加 `variants` 字段
+1. **i18n** -- `name` `description` 多语言？建议 v0.2 加 `i18n: { zh-CN: { name, description } }`，v0.1 默认英文
+2. **变量 group** -- 复杂模板（>20 字段）需要分组渲染 UI；JSON Schema 标准的 `x-ui-order` / `x-ui-group` 扩展？
+3. **依赖图** -- 一个 template 能不能 include 另一个 template（transition + main 组合）？v0.1 不支持，每模板独立
+4. **变量来源** -- 是否预设 "data source" 类型让用户 paste CSV / Google Sheet URL？v0.1 只接 inline，外部数据靠 agent 自己拉
+5. **A/B 变体** -- 一个模板出多版（不同色 / 不同 motion）共享同源代码？v0.2 加 `variants` 字段
