@@ -3,9 +3,9 @@ name: frame-build-minimal
 zh_name: "奢华极简留白帧"
 en_name: "Build Minimal Frame"
 emoji: "◇"
-description: "Luxury-minimal whitespace hero — single word reveals letter by letter, warm-gold hairline, breathing indicators."
+description: "Luxury-minimal whitespace hero - single word reveals letter by letter, warm-gold hairline, breathing indicators."
 zh_description: "奢华极简留白帧:单词逐字浮现 + 暖金细线 + 呼吸感细线指示器, 70%+ 留白"
-en_description: "Luxury-minimal whitespace hero — single word reveals letter by letter, warm-gold hairline, breathing indicators."
+en_description: "Luxury-minimal whitespace hero - single word reveals letter by letter, warm-gold hairline, breathing indicators."
 category: video
 scenario: video
 aspect_hint: "1920×1080 (16:9)"
@@ -31,7 +31,7 @@ od:
     reload: debounce-100
   design_system:
     requires: false
-  example_prompt: "Use the Build Minimal Frame template to turn my brand word into a luxury-minimal whitespace hero — a single word revealing letter by letter in ultra-thin type, a warm-gold hairline, and breathing indicators. Preserve the template's visual signature, use real content, and avoid lorem ipsum or placeholder images."
+  example_prompt: "Use the Build Minimal Frame template to turn my brand word into a luxury-minimal whitespace hero - a single word revealing letter by letter in ultra-thin type, a warm-gold hairline, and breathing indicators. Preserve the template's visual signature, use real content, and avoid lorem ipsum or placeholder images."
   example_prompt_i18n:
     zh-CN: "用「奢华极简留白帧」模板把我的品牌词做成一段奢华极简留白 hero:超细字重单词逐字浮现 + 暖金细线 + 呼吸感指示器。保持模板的视觉签名,使用真实内容,避免 lorem ipsum 和占位图片。"
 ---
