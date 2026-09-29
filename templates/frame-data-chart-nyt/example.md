@@ -3,7 +3,7 @@
 > NYT 风折线图, 一个结论 + 8 个数据点
 
 ## 结论
-**AI agent 月活在 2024 之后呈两段抛物线增长** — 第一段由 Claude / GPT 工作流推动, 第二段由本地 CLI agent (Cursor / Codex / Aider) 普及推动。
+**AI agent 月活在 2024 之后呈两段抛物线增长** - 第一段由 Claude / GPT 工作流推动, 第二段由本地 CLI agent (Cursor / Codex / Aider) 普及推动。
 
 ## 数据 (CSV)
 year,MAU_millions
