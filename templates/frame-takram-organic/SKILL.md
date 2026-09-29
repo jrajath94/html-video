@@ -3,9 +3,9 @@ name: frame-takram-organic
 zh_name: "东方柔和有机帧"
 en_name: "Takram Organic Frame"
 emoji: "🌿"
-description: "Soft-tech radial node graph as art — frosted rounded card, curved links drawing in, nodes popping outward, gentle float."
+description: "Soft-tech radial node graph as art - frosted rounded card, curved links drawing in, nodes popping outward, gentle float."
 zh_description: "东方柔和有机帧:毛玻璃圆角卡 + 曲线连接描入 + 放射节点弹出 + 柔和漂浮, 米色自然色调"
-en_description: "Soft-tech radial node graph as art — frosted rounded card, curved links drawing in, nodes popping outward, gentle float."
+en_description: "Soft-tech radial node graph as art - frosted rounded card, curved links drawing in, nodes popping outward, gentle float."
 category: video
 scenario: video
 aspect_hint: "1920×1080 (16:9)"
@@ -31,7 +31,7 @@ od:
     reload: debounce-100
   design_system:
     requires: false
-  example_prompt: "Use the Takram Organic Frame template to turn my concept into a soft-tech radial node graph — a frosted rounded card with curved links drawing in and nodes popping outward around an evolving core. Preserve the template's visual signature, use real content, and avoid lorem ipsum or placeholder images."
+  example_prompt: "Use the Takram Organic Frame template to turn my concept into a soft-tech radial node graph - a frosted rounded card with curved links drawing in and nodes popping outward around an evolving core. Preserve the template's visual signature, use real content, and avoid lorem ipsum or placeholder images."
   example_prompt_i18n:
     zh-CN: "用「东方柔和有机帧」模板把我的概念做成一段柔和科技感放射节点图:毛玻璃圆角卡 + 曲线连接描入 + 节点围绕进化核心放射弹出。保持模板的视觉签名,使用真实内容,避免 lorem ipsum 和占位图片。"
 ---
