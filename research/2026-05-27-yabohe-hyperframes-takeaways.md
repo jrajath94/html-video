@@ -8,17 +8,17 @@
 
 HF 五步流程：
 
-1. **`init`** — `npx hyperframes init my-video [--example warm-grain] [--video clip.mp4] [--audio track.mp3]`
+1. **`init`** - `npx hyperframes init my-video [--example warm-grain] [--video clip.mp4] [--audio track.mp3]`
    - 内置模板：`blank / warm-grain / swiss-grid / kinetic-type / product-promo`
-2. **写 HTML 合成** — 一个 HTML 文件 = 一个视频；用 `data-*` 属性控时间轴 + GSAP 做动画 + CSS 做样式
-3. **`lint`** — `npx hyperframes lint [--verbose]` 语法 / schema 错误检查
-4. **`preview`** — `npx hyperframes preview` 浏览器实时热重载
-5. **`render`** — `npx hyperframes render [--quality draft|high] [--fps 60] [--format webm] [--output xx.mp4]`
+2. **写 HTML 合成** - 一个 HTML 文件 = 一个视频；用 `data-*` 属性控时间轴 + GSAP 做动画 + CSS 做样式
+3. **`lint`** - `npx hyperframes lint [--verbose]` 语法 / schema 错误检查
+4. **`preview`** - `npx hyperframes preview` 浏览器实时热重载
+5. **`render`** - `npx hyperframes render [--quality draft|high] [--fps 60] [--format webm] [--output xx.mp4]`
 
 额外能力：
 
-- **`transcribe`** — STT 字幕：`npx hyperframes transcribe audio.mp3` / `transcribe video.mp4 --model medium.en`
-- **`tts`** — 旁白：`npx hyperframes tts "你的文本" --voice af_nova --output narration.wav`，`tts --list` 看所有声色
+- **`transcribe`** - STT 字幕：`npx hyperframes transcribe audio.mp3` / `transcribe video.mp4 --model medium.en`
+- **`tts`** - 旁白：`npx hyperframes tts "你的文本" --voice af_nova --output narration.wav`，`tts --list` 看所有声色
 
 ## 给 html-video 的 5 条建议
 
@@ -38,7 +38,7 @@ HF 五步流程：
 
 HF 视频源码靠 `data-start` / `data-duration` / `data-anim` 等属性 + GSAP timeline 驱动。我现在 prompt 只说 "preserve visual signature"，模糊。改成显式：
 
-> Hyperframes uses `data-start`, `data-duration`, `data-anim`, and similar `data-*` attributes on elements to drive the timeline. Preserve every `data-*` attribute (including `data-hv-text` and any HF time-axis attributes) when rewriting. Don't touch GSAP timeline IDs, animation triggers, or scene boundaries — only change visible text content and inline values.
+> Hyperframes uses `data-start`, `data-duration`, `data-anim`, and similar `data-*` attributes on elements to drive the timeline. Preserve every `data-*` attribute (including `data-hv-text` and any HF time-axis attributes) when rewriting. Don't touch GSAP timeline IDs, animation triggers, or scene boundaries - only change visible text content and inline values.
 
 ### ★★★ 3. 加 lint step
 
@@ -66,6 +66,6 @@ gallery 按 style_family 折叠分组（"按风格" / "按用途" 双视图）�
 
 ## 不直接抄、但要心里有数的事
 
-- HF 自带 STT (`transcribe`) — 我们如果做"把视频转字幕段"功能，复用 HF 即可不用自己接 whisper
-- HF `init --example` 已经有 example 模板向导 — 我们 gallery 已经做了类似事，但**带 example 项目脚手架**（含 README / 默认 vars / 推荐流程）这个粒度我们没做，未来 v1 可以
-- HF v0.4 文档里没提"agent 协作"，**这是 html-video 真正的差异化**——HF 是给开发者的工具，html-video 是给"用 agent 帮我做视频"的创作者
+- HF 自带 STT (`transcribe`) - 我们如果做"把视频转字幕段"功能，复用 HF 即可不用自己接 whisper
+- HF `init --example` 已经有 example 模板向导 - 我们 gallery 已经做了类似事，但**带 example 项目脚手架**（含 README / 默认 vars / 推荐流程）这个粒度我们没做，未来 v1 可以
+- HF v0.4 文档里没提"agent 协作"，**这是 html-video 真正的差异化**--HF 是给开发者的工具，html-video 是给"用 agent 帮我做视频"的创作者
