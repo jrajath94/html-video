@@ -8,7 +8,7 @@
 
 ## 来源（用户原话）
 
-> 它应该是跟 HTML anything 这个项目，产品的界面的结构是有点相似的——左边有一个项目的创建栏，创建一个项目之后呢，它可以在这个项目里面去输入或者上传文字、图片、视频等等的素材，然后可以根据他的这些素材，在右边的这个效果栏里面，它首先是可以选择一个 hyperframes 的模板，然后选完模板之后，就可以根据它的输入和上传的内容去生成一个 HTML 的预览的效果，然后他先在 HTML 的预览效果里面，先看整体的视频效果是怎么样的，然后确认之后再可以是导出一个视频。
+> 它应该是跟 HTML anything 这个项目，产品的界面的结构是有点相似的--左边有一个项目的创建栏，创建一个项目之后呢，它可以在这个项目里面去输入或者上传文字、图片、视频等等的素材，然后可以根据他的这些素材，在右边的这个效果栏里面，它首先是可以选择一个 hyperframes 的模板，然后选完模板之后，就可以根据它的输入和上传的内容去生成一个 HTML 的预览的效果，然后他先在 HTML 的预览效果里面，先看整体的视频效果是怎么样的，然后确认之后再可以是导出一个视频。
 >
 > 你这里的分镜剪辑这些我觉得好像都是不用的，不用考虑剪辑，因为它本身就是 HTML 做的视频嘛，所以你只要给它能够预览到每个画面的效果就好了。
 
@@ -16,7 +16,7 @@
 
 ## 关键认知更新
 
-之前 RFC-04 假设 html-video 要做"创作者级 storyboard 编辑器"——用 agent 把素材编排成多 scene 序列、加转场、人审、拼成 MP4。这是**借了电影制片的工作流**，但放在"HTML 模板内部已经全权决定动画序列"的语境下是**重复抽象**：
+之前 RFC-04 假设 html-video 要做"创作者级 storyboard 编辑器"--用 agent 把素材编排成多 scene 序列、加转场、人审、拼成 MP4。这是**借了电影制片的工作流**，但放在"HTML 模板内部已经全权决定动画序列"的语境下是**重复抽象**：
 
 - HTML 模板本身就是一段完整视频的可视化逻辑（GSAP timeline 已经定义了视觉序列）
 - 用户的真实诉求：选一个我喜欢的视觉风格 + 把我的素材塞进去 + 看效果 + 导出
@@ -103,9 +103,9 @@ project-root/
 ```
 
 **关键约定**：
-- **预览即效果** —— HTML iframe 里看到的就是最终视频效果，没有"分镜阶段 vs 完成阶段"的区分。MP4 export 只是把 HTML 录成视频。
-- **没有 approval gate** —— RFC-04 那个 `approved` 中间状态删除。预览满意直接 export。
-- **没有跨模板拼接** —— 想要更复杂的多段视频？建多个 project，最终用户自己用其他工具拼（v0.3 可能加 "compose projects" 功能，v0.1 不做）。
+- **预览即效果** -- HTML iframe 里看到的就是最终视频效果，没有"分镜阶段 vs 完成阶段"的区分。MP4 export 只是把 HTML 录成视频。
+- **没有 approval gate** -- RFC-04 那个 `approved` 中间状态删除。预览满意直接 export。
+- **没有跨模板拼接** -- 想要更复杂的多段视频？建多个 project，最终用户自己用其他工具拼（v0.3 可能加 "compose projects" 功能，v0.1 不做）。
 
 ---
 
@@ -219,7 +219,7 @@ html-video studio [--port 3071]                  # 起 project studio，浏览�
 | `type: string` | text input |
 | `type: string` + `enum` | select dropdown |
 | `type: string` + `format: date` | date picker |
-| `type: string` + key contains `_path` | **asset picker** —— 只列 project.assets 里 type 匹配的（image_path → image 资产） |
+| `type: string` + key contains `_path` | **asset picker** -- 只列 project.assets 里 type 匹配的（image_path → image 资产） |
 | `type: string` + `maxLength` | textarea if > 100 else input |
 | `type: number` | number input with `min/max` |
 | `type: boolean` | toggle |
@@ -255,7 +255,7 @@ v0.2 加 schema custom annotation `x-asset-type`（更精确）。
 
 ## TemplateRegistry / TemplateMetadata 影响
 
-无变化（RFC-02）。只是说明 `inputs.schema` 现在被 UI 自动渲染表单消费——之前 RFC-02 已经定义了 schema 是 JSON Schema 兼容，UI 渲染器只是它的 consumer 之一（agent 也是 consumer，跟 RFC-03 一致）。
+无变化（RFC-02）。只是说明 `inputs.schema` 现在被 UI 自动渲染表单消费--之前 RFC-02 已经定义了 schema 是 JSON Schema 兼容，UI 渲染器只是它的 consumer 之一（agent 也是 consumer，跟 RFC-03 一致）。
 
 唯一新增：**强烈建议**作者在 schema 字段上加 `description`（现在用作 form tooltip）和 `default`（用作 form 初值）。已有 5 个 reference templates 都满足。
 
@@ -286,7 +286,7 @@ v0.2 加 schema custom annotation `x-asset-type`（更精确）。
 
 ## 给 Joey 的话
 
-承认我的设计偏了——把"创作者用 HTML 做单段视频"理解成了"剧情片导演用 storyboard 拼镜头"。新版回归 HTML Anything 的极简心智，**项目 = 素材 + 模板 + 视频，仅此而已**。
+承认我的设计偏了--把"创作者用 HTML 做单段视频"理解成了"剧情片导演用 storyboard 拼镜头"。新版回归 HTML Anything 的极简心智，**项目 = 素材 + 模板 + 视频，仅此而已**。
 
 下一次 commit 会做完整重构（删 storyboard 全树，加 project + 三栏 studio + 表单自动渲染），跑完 smoke 重启 preview server 给你看。
 
@@ -294,8 +294,8 @@ v0.2 加 schema custom annotation `x-asset-type`（更精确）。
 
 ## Open Questions（v0.2 待定）
 
-1. **变量与素材绑定的精确度** —— `image_path` 启发式可能误判，是否引入 `x-asset-type` 扩展？
-2. **多素材同字段** —— 如果模板要 1 个 image_path，但用户有 N 张图，建议开 N 个项目？还是模板支持 multi-image 的 v2？
-3. **预览实时性** —— 字段 blur debounce 300ms 够吗？还是需要 explicit "Refresh preview" 按钮（避免大模板每键入一次都重 render）？
-4. **历史版本** —— 项目要不要支持 "undo / 历史快照"？v0.1 不做，更新即覆盖
-5. **导出选项** —— 导出 MP4 时让用户选分辨率 / fps / 时长？还是按模板默认值？
+1. **变量与素材绑定的精确度** -- `image_path` 启发式可能误判，是否引入 `x-asset-type` 扩展？
+2. **多素材同字段** -- 如果模板要 1 个 image_path，但用户有 N 张图，建议开 N 个项目？还是模板支持 multi-image 的 v2？
+3. **预览实时性** -- 字段 blur debounce 300ms 够吗？还是需要 explicit "Refresh preview" 按钮（避免大模板每键入一次都重 render）？
+4. **历史版本** -- 项目要不要支持 "undo / 历史快照"？v0.1 不做，更新即覆盖
+5. **导出选项** -- 导出 MP4 时让用户选分辨率 / fps / 时长？还是按模板默认值？
