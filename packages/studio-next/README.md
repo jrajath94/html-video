@@ -18,10 +18,10 @@ as our editor UI instead of hand-rolling click-to-edit, timeline, property panel
 
 What we **can** lift directly (no runtime requirement):
 
-- `SourceEditor` — CodeMirror 6 wrapper for HTML / CSS / JS
+- `SourceEditor` - CodeMirror 6 wrapper for HTML / CSS / JS
 - `applyPatch`, `parseStyleString`, `mergeStyleIntoTag`, `findElementBlock`
   from `@hyperframes/studio/utils`
-- `EaseCurveEditor` (visual GSAP curve picker — works on a value/onChange interface)
+- `EaseCurveEditor` (visual GSAP curve picker - works on a value/onChange interface)
 
 What we **can't** lift without bigger work:
 
@@ -38,4 +38,4 @@ pnpm --filter @html-video/studio-next dev
 ```
 
 Production studio still lives at `packages/project-studio/` (port 3071).
-This package is a spike — do not depend on it.
+This package is a spike - do not depend on it.
