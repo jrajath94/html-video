@@ -1,4 +1,4 @@
-# Provenance audit — 模板来源核查报告
+# Provenance audit - 模板来源核查报告
 
 > 2026-06-04。起因:发现今天新增的 3 个模板(已回退)与仓库已有模板视觉撞车,
 > 进而对整个模板库的"原创性声明 + 署名"做了一次真实上游比对。
@@ -22,7 +22,7 @@
 | [alchaincyf/huashu-design](https://github.com/alchaincyf/huashu-design) | **alchaincyf(花叔 · 花生)** © 2026 | MIT ✅ 已核实 | build-minimal, pentagram-stat, takram-organic |
 | [zarazhangrui/frontend-slides](https://github.com/zarazhangrui/frontend-slides) | **Zara Zhang** © 2025 | MIT ✅ 已核实 | bold-signal, creative-voltage, electric-studio |
 
-License 真的是 MIT,允许商用 + 再分发,**所以这不是"能不能用"的问题**——MIT 完全允许。
+License 真的是 MIT,允许商用 + 再分发,**所以这不是"能不能用"的问题**--MIT 完全允许。
 问题在**署名是否写清楚、风格名是否该直接挪用**。
 
 ## 关键发现:Pentagram/Build/Takram 是三层署名,不是两层
@@ -30,11 +30,11 @@ License 真的是 MIT,允许商用 + 再分发,**所以这不是"能不能用"�
 huashu-design 的 `references/design-styles.md` 明确写道:
 
 - **01 Pentagram** = "Michael Bierut 风格 / Pentagram"(搜索词:pentagram hillary logo system)
-  —— 真实的全球顶级设计公司 Pentagram,设计师 Michael Bierut
+  -- 真实的全球顶级设计公司 Pentagram,设计师 Michael Bierut
 - **11 Build** = "Build studio luxury minimalism"(搜索词:build studio london branding)
-  —— 伦敦设计工作室 Build
+  -- 伦敦设计工作室 Build
 - **17 Takram** = "Takram Japanese speculative design"(搜索词:takram nhk data visualization)
-  —— 日本设计公司 Takram
+  -- 日本设计公司 Takram
 
 → 真实署名链是:**Pentagram / Build / Takram(真实工作室)→ huashu-design 提炼为"风格 +
 HTML 示例"(MIT,花叔)→ html-video 转成视频模板**。我们当前 provenance 只写到 huashu
@@ -49,9 +49,9 @@ huashu 自己的规矩(design-styles.md):
 
 | 风格 | 共享配色 | 字体 | 复刻程度 |
 |---|---|---|---|
-| Pentagram | 2/2(#E63946 红 + #FFFFFF 全同) | 我们换成 Archivo | 高 — 配色照搬 |
-| Build | 4/7(#A8A4A0 #B0ACA4 #D4A574 暖灰全同) | 同 Inter | 高 — 配色+字体同源 |
-| Takram | 0/7(配色我们重新调过) | 我们换成 Manrope | 中 — 重新着色 |
+| Pentagram | 2/2(#E63946 红 + #FFFFFF 全同) | 我们换成 Archivo | 高 - 配色照搬 |
+| Build | 4/7(#A8A4A0 #B0ACA4 #D4A574 暖灰全同) | 同 Inter | 高 - 配色+字体同源 |
+| Takram | 0/7(配色我们重新调过) | 我们换成 Manrope | 中 - 重新着色 |
 
 示例数据 `95.7/73.8/87.4 + AIME/SWE-bench`:**三个上游 ppt 页里都有,我们照搬。**
 
