@@ -343,10 +343,10 @@ muxing / done). On done, paste the absolute output path.
 
 不重写一遍。用 [`@html-video/agent-skill-claude-code`](#) 作为 master，**自动 transpile** 成：
 
-- `@html-video/agent-skill-cursor` —— `.cursor/rules/html-video.mdc` 形式
-- `@html-video/agent-skill-codex` —— `~/.codex/skills/html-video.md`
-- `@html-video/agent-skill-gemini` —— `~/.gemini/agents/html-video.toml`
-- `@html-video/agent-skill-opencode` —— OD 项目内 `.opencode/skills/html-video/`
+- `@html-video/agent-skill-cursor` -- `.cursor/rules/html-video.mdc` 形式
+- `@html-video/agent-skill-codex` -- `~/.codex/skills/html-video.md`
+- `@html-video/agent-skill-gemini` -- `~/.gemini/agents/html-video.toml`
+- `@html-video/agent-skill-opencode` -- OD 项目内 `.opencode/skills/html-video/`
 
 transpile 工具藏在 `tools/skill-transpile/`，CI 跑。所有变体共享 SKILL.md 的 prose，只换 frontmatter / file 命名。
 
