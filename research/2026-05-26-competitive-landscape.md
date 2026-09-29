@@ -84,8 +84,8 @@
 
 未定的关键设计点：
 
-1. **engine adapter 接口标准** —— 输入（intent / template / variables）→ 输出（MP4/WebM）的抽象边界在哪
-2. **template 格式** —— 跨引擎统一的 template metadata（agent 知道哪个 template 用哪个 engine）
-3. **agent skill 设计** —— skills/ 的 trigger keywords / 参数 schema / engine 推荐逻辑
-4. **studio UI** —— 是否做本地 GUI preview，类似 Hyperframes / Remotion Studio
-5. **packaging** —— monorepo（pnpm workspace）vs polyrepo
+1. **engine adapter 接口标准** -- 输入（intent / template / variables）→ 输出（MP4/WebM）的抽象边界在哪
+2. **template 格式** -- 跨引擎统一的 template metadata（agent 知道哪个 template 用哪个 engine）
+3. **agent skill 设计** -- skills/ 的 trigger keywords / 参数 schema / engine 推荐逻辑
+4. **studio UI** -- 是否做本地 GUI preview，类似 Hyperframes / Remotion Studio
+5. **packaging** -- monorepo（pnpm workspace）vs polyrepo
