@@ -5,7 +5,7 @@
 
 ## 角色与边界
 
-- **角色**：T9（端口段 **3071-3079**）—— 现有 T1-T8 已分配
+- **角色**：T9（端口段 **3071-3079**）-- 现有 T1-T8 已分配
 - **职责**：html-video 项目的产品定位 / 架构 / engine 适配器 spec / 模板生态 / agent skill 设计 / 文档 / 公开 launch 物料
 - **不做**：
   - 跨项目协调（T1 主控的活）
@@ -15,7 +15,7 @@
 ## 产品定位（决策时间线）
 
 - **2026-05-26 启动思路**：Joey 最初以为 Hyperframes 是闭源 SaaS，想做 "HTML 视频开源整合工具"。调研发现 Hyperframes 已经是 Apache-2.0 开源 + 21K★ + agent-native，跟 Joey 设想的产品 1:1 重合。
-- **2026-05-26 定位拍板**：放弃"做 HF 杀手"的正面竞争路线，改走 **Meta-aggregator** —— 把 HF / Remotion / Motion Canvas / Revideo 都包成可选 backend，agent 选 engine + 模板 + 一键出片。差异化明确，跟 HF 不正面撞。
+- **2026-05-26 定位拍板**：放弃"做 HF 杀手"的正面竞争路线，改走 **Meta-aggregator** -- 把 HF / Remotion / Motion Canvas / Revideo 都包成可选 backend，agent 选 engine + 模板 + 一键出片。差异化明确，跟 HF 不正面撞。
 
 ### 关键差异化 vs Hyperframes
 
@@ -55,9 +55,9 @@ v0.7 之前的进展见 git log。本节记 v0.8 落地的事 + 还没接的事�
 - ⏳ RFC-06 正式文档稿（落 `research/2026-05-28-spec-06-content-graph.md`）；目前规范散在 content-graph package README + smoke + agent prompt 三处
 - ⏳ studio 的 graph viewer 现在只读，未来可加可视化编辑（拖节点 / 加边）
 
-## 会话进度（2026-06-07）— Remotion 原生数据模板 + 按帧增强（Phase A+B 跑通，**git 待 Joey 定**）
+## 会话进度（2026-06-07）- Remotion 原生数据模板 + 按帧增强（Phase A+B 跑通，**git 待 Joey 定**）
 
-> 起点：Joey 修正定位——**Remotion 是用户主动按帧挂的"动效增强插件"，hyperframes 是基座，AI 退到建议**（推翻 RFC-09 v0.1 的"AI 自动选引擎/引擎名隐形"）。本轮做 RFC-08 **Phase 2 原生 tsx 数据动画** 的第一刀：CLI 层跑通混流 MP4。在 `feat/remotion-adapter` 分支（HEAD 原 `633a3dd` = Phase 1 桥接）。
+> 起点：Joey 修正定位--**Remotion 是用户主动按帧挂的"动效增强插件"，hyperframes 是基座，AI 退到建议**（推翻 RFC-09 v0.1 的"AI 自动选引擎/引擎名隐形"）。本轮做 RFC-08 **Phase 2 原生 tsx 数据动画** 的第一刀：CLI 层跑通混流 MP4。在 `feat/remotion-adapter` 分支（HEAD 原 `633a3dd` = Phase 1 桥接）。
 
 **做完的（全部端到端真实渲染 + 量像素验证，非 mock）：**
 - ✅ 类型层（`packages/core/src/types/index.ts`）：`TemplateRef` 加 `mode?:'bridge'|'native'` + `nativeCompositionId?`；`FrameRecord` 加 `engine?`/`nativeTemplateId?`/`data?`；`TemplateMetadata` 加 `native?:{compositionId}`。
@@ -71,12 +71,12 @@ v0.7 之前的进展见 git log。本节记 v0.8 落地的事 + 还没接的事�
 
 **关键教训（新会话必读）：**
 - **混流 concat 不能用 concat demuxer + 重编码**：hyperframes 与 Remotion 段的 timebase/PTS 不兼容，concat demuxer 会**错误累加时间戳→8s 片变 35s**（`-vsync cfr` 也救不了，因为坏 PTS 已被喂进来）。**正解 = concat FILTER**：每段独立 `-i` + `-filter_complex "[0:v][1:v]...concat=n=N:v=1[v]"` 重建时间轴 → 精确 8s。单引擎仍走 demuxer `-c copy`（快、无损）。判混流类输出**必须 ffprobe 量时长 + `ffmpeg -f null -` 全解码**，不能只看文件生成。
-- **Remotion 能 bundle 模板自己的 `source/entry.ts`**（templates/ 下无独立 node_modules），webpack 能 resolve 到 workspace 根的 react/remotion——最大未知，已验证可行。原生模板做成 `templates/` 一等模板（不塞进 adapter 内部）这条路通。
+- **Remotion 能 bundle 模板自己的 `source/entry.ts`**（templates/ 下无独立 node_modules），webpack 能 resolve 到 workspace 根的 react/remotion--最大未知，已验证可行。原生模板做成 `templates/` 一等模板（不塞进 adapter 内部）这条路通。
 - **本机仍无 timeout 命令**（macOS）；PIL 仍装不上（brew Python expat bug），量像素继续用 ImageMagick `magick ... -threshold -format '%[fx:100*mean]'`。
 
 **待 Joey 定（git 写操作，未执行）**：① 本轮改动开 PR（按惯例对外可见/新模板走 PR review）还是直推；② 上一会话(6/6)遗留的 CLAUDE.md 39 行未提交记录怎么处理（CLAUDE.md 是追踪文件但属内部 notes，不宜混进代码 PR）。临时 driver 在 `~/Desktop/claude-code/scratch/hv-remotion-native/`（不进库）。
 
-## 会话进度（2026-06-06）— 渲染 + studio 一连串修复，**4 个 PR 全部 merged 进 main**
+## 会话进度（2026-06-06）- 渲染 + studio 一连串修复，**4 个 PR 全部 merged 进 main**
 
 > 任务起点："继续修字体跳闪"。顺着 Joey 的逐轮实测，从渲染引擎挖到 studio agent 交互/生成层，
 > 修了 4 个 PR 全部合并。**全部端到端实调 Anthropic API 验证（非 mock）。** main 顶 = `1a83279`。
@@ -91,7 +91,7 @@ v0.7 之前的进展见 git log。本节记 v0.8 落地的事 + 还没接的事�
 **改动文件**（都在 main）：`packages/adapter-hyperframes/src/render.ts`（字体冻结、时长 explicit）、
 `packages/cli/src/studio-server.ts`（主题锁定、生成后迭代）、`packages/core/src/types/index.ts`+`project.ts`（durationMode）。
 
-**#22 字体跳闪真根因（两轮才修对）**：① 第一版只加 `document.fonts.ready` 等待——不够，因为纯 CSS
+**#22 字体跳闪真根因（两轮才修对）**：① 第一版只加 `document.fonts.ready` 等待--不够，因为纯 CSS
 `@keyframes` 动画在 `goto` 后**不等字体就自动跑**，等字体的 ~3s 连同 FOUT 一起被 playwright 录进开头，
 单文件模板还不裁死区。② 正解：`addInitScript` 注入 `* {animation-play-state:paused}` 在文档解析前**冻结所有动画**
 → 等 stylesheet link + `fonts.load()` 每个 face + `fonts.ready` → 解冻并把冻结期当 leadInMs 裁掉。统一了单文件 + 多 composition 时序。
@@ -105,7 +105,7 @@ v0.7 之前的进展见 git log。本节记 v0.8 落地的事 + 还没接的事�
 ### 关键教训（新会话必读）
 
 - **字体跳闪只在导出 mp4 复现**（后端冷 chromium 录屏）；**studio iframe 实时预览有字体缓存，看不出**。验证载体只能是导出的 mp4，量早期帧（t≈0.1s）字体形态。本机 PIL 装不上（brew Python expat bug），量像素用 ImageMagick；颜色验证用 computed-style 而非截图（Playwright 截图在动画站超时）。
-- **studio agent 这种"判用户意图"的逻辑，别用白名单正则判触发**——"换个模板重新生成一下"就因不在白名单掉进单帧重写黑洞。正确思路是**反转默认**：默认走交互/重生成，只有明确的少数情况（pin 帧）才单帧。判 render/交互类修复**必须端到端实跑**，不能信"tsc 过 + 逻辑看着对"。
+- **studio agent 这种"判用户意图"的逻辑，别用白名单正则判触发**--"换个模板重新生成一下"就因不在白名单掉进单帧重写黑洞。正确思路是**反转默认**：默认走交互/重生成，只有明确的少数情况（pin 帧）才单帧。判 render/交互类修复**必须端到端实跑**，不能信"tsc 过 + 逻辑看着对"。
 - **`project.intent` 字段前端创建时不传**（只发 name），恢复开场主题靠 `history.find(role==='user')` 第一条。
 - **per_frame 时长**：render.ts 探测动画长度会无条件 extend 覆盖用户设定（4s→29.7s）。修法 = `RenderConfig.durationMode='explicit'`（多帧 export 传），explicit 时不 extend，ffmpeg `tpad=stop_mode=clone` 补尾帧到精确时长；单帧快速预览仍 'auto' 照常 extend。
 - **PR 合并流程坑（2026-06-06 踩过）**：PR #23 在我追加第二个 commit **之前**就被合并了（merge commit，非 squash，疑 Joey 手点或自动合），导致那个 commit 落空 → 只能 cherry-pick 到新分支另开 #24 补。教训：push 追加 commit 前先确认 PR 还 OPEN。Joey 偏好 **squash 合并**。
@@ -115,7 +115,7 @@ v0.7 之前的进展见 git log。本节记 v0.8 落地的事 + 还没接的事�
 
 **仍未追踪不进版本库**（Joey 未定）：`research/render-all-previews.sh` / `repick-posters.sh` / `preview-renders/` / `preview-renders.old-*/` / spec-08/09 md / 上述 notes 目录。
 
-## 会话进度（2026-06-05）— 新模板 frame-bold-poster，**已做完 + studio 验证，git 待定**
+## 会话进度（2026-06-05）- 新模板 frame-bold-poster，**已做完 + studio 验证，git 待定**
 
 > 上一会话在 `feat/template-bold-poster` 分支做了一个新模板 `frame-bold-poster`（暖白纸底 +
 > 番红 + 巨型倾斜 Shrikhand 大字的 1970s 欧洲社论海报风），未提交即中断。本轮接续：核对 + 验证。
@@ -124,11 +124,11 @@ v0.7 之前的进展见 git log。本节记 v0.8 落地的事 + 还没接的事�
   唯一在制品 = 未追踪目录 `templates/frame-bold-poster/`（template.html-video.yaml + SKILL.md +
   example.md + package.json + preview.png + source/index.html）。**6/4 那轮 provenance 整改其实早已
   merge 进 main（commit `db31210`），下面 6/4 段里"待 commit"的说法已过时，勿再据此重复提交。**
-- ✅ 核对新模板严格遵循 RFC-07：三层署名齐全 —— origin = "1970s 欧洲社论海报传统"（标 `kind: movement`，
+- ✅ 核对新模板严格遵循 RFC-07：三层署名齐全 -- origin = "1970s 欧洲社论海报传统"（标 `kind: movement`，
   诚实地不伪造具体工作室）/ via_skill = frontend-slides · Zara Zhang · MIT · 指向具体上游
   `bold-template-pack/templates/bold-poster/design.md` / transformation 声明为原创 CSS keyframes、
   调色与字体栈跟随上游 spec、**未照搬上游 HTML**。
-- ✅ 查重：与已有 `frame-bold-signal`（同样 frontend-slides 派生）**不撞车** —— bold-signal 是深色底
+- ✅ 查重：与已有 `frame-bold-signal`（同样 frontend-slides 派生）**不撞车** -- bold-signal 是深色底
   `#1a1a1a` + Archivo Black + 橙红 `#FF5722`、源自 `STYLE_PRESETS.md` preset、origin=none；
   bold-poster 是暖白 `#F5F2EF` + Shrikhand/Libre Baskerville 衬线 + 番红 `#D8000F`、源自具体上游模板。
 - ✅ 验证：① `pnpm -r build` 全过；② CLI `search-templates` 重读磁盘 → 27 模板齐全，bold-poster
@@ -138,7 +138,7 @@ v0.7 之前的进展见 git log。本节记 v0.8 落地的事 + 还没接的事�
   未开 PR。待 Joey 在 studio 看完动效后，再决定 commit + 开 PR（按约定模板/公开内容走 PR review）。
   studio 运行中：`http://localhost:3071`（pid 见 `/tmp/hv-studio-3071.log`）。
 
-## 会话进度（2026-06-04）— 模板来源/署名整改，**已完成并 merge 进 main（`db31210`）**
+## 会话进度（2026-06-04）- 模板来源/署名整改，**已完成并 merge 进 main（`db31210`）**
 
 > 起因：Joey 发现新加的模板与已有模板视觉撞车，且"原创"声明未经核实。
 > 做了一次全量来源审计 + 定转换规范 + 按规范整改了 6 个模板的署名。
@@ -154,19 +154,19 @@ v0.7 之前的进展见 git log。本节记 v0.8 落地的事 + 还没接的事�
   （Pentagram=Michael Bierut / Build=伦敦工作室 / Takram=日本公司）。署名是**三层**不是两层。
   且我们模板示例数据（95.7/73.8/AIME/SWE）是从上游 ppt 页照搬的。
 - ✅ 写了审计报告 `notes/2026-06-04-provenance-audit.md`（未提交）
-- ✅ 写了转换规范 **`research/2026-06-04-spec-07-ppt-to-template.md`（RFC-07，未提交）** —— 含三层
+- ✅ 写了转换规范 **`research/2026-06-04-spec-07-ppt-to-template.md`（RFC-07，未提交）** -- 含三层
   署名 schema（origin/via_skill/transformation）+ 命名规范 + 转换质量门槛 + 查重 + 交付清单。
   Joey 已认可此规范，后续按它走。
 - ✅ 决定：**"默认渲染效果"不另做 loop.mp4**。studio 预览弹窗已用 `mode:'iframe'` 实时跑动画，
   用户在 studio 能直接看动效；preview.png 只做 studio 之外（README/官网）的静态兜底。
 
-**整改（后半段，本轮做完）—— 6 个模板按 RFC-07 补三层署名，只补署名不改名：**
+**整改（后半段，本轮做完）-- 6 个模板按 RFC-07 补三层署名，只补署名不改名：**
 - ✅ 6 个模板的扁平 `provenance.inspired_by` 全部换成三层结构
   `origin`（L1 真实工作室）/ `via_skill`（L2 skill+真实作者全名+license+具体 source_file）/ `transformation`：
   - huashu 系 source_file = `assets/showcases/ppt/ppt-{pentagram,build,takram}.html`，
     origin 分别 = Pentagram(Michael Bierut) / Build(伦敦工作室) / Takram(日本公司)。
   - frontend-slides 系 source_file = `STYLE_PRESETS.md`（preset "Bold Signal"/"Creative Voltage"/
-    "Electric Studio"），**origin 诚实标 `none`** —— 这三个是 skill 作者自组的原创 preset，没特定 L1 工作室。
+    "Electric Studio"），**origin 诚实标 `none`** -- 这三个是 skill 作者自组的原创 preset，没特定 L1 工作室。
   - via_skill.author 填真实全名：`alchaincyf (花叔 · 花生)` / `Zara Zhang`（上游 LICENSE 核实过）。
 - ✅ 遵守 Joey 决定（6/4）：本轮**只补 provenance 三层 + 真实作者名，未改 id/显示名/示例数据**
   （命名挪用工作室名的问题留下一轮）。
