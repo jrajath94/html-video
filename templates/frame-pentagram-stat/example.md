@@ -12,7 +12,7 @@ Benchmark · Coding
 95
 
 ## 副标
-AIME score — a new state of the art for open coding models.
+AIME score - a new state of the art for open coding models.
 
 ## 数据底栏
 - 95.7 · AIME
