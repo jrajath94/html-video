@@ -2,13 +2,13 @@
 
 > **English** · [中文](#中文)
 
-Thank you for your interest in contributing! html-video is an Apache-2.0 project by the [Open Design](https://github.com/nexu-io/open-design) team. We welcome contributions of all kinds — code, docs, templates, bug reports, and ideas.
+Thank you for your interest in contributing! html-video is an Apache-2.0 project by the [Open Design](https://github.com/nexu-io/open-design) team. We welcome contributions of all kinds - code, docs, templates, bug reports, and ideas.
 
 ---
 
 ## Community
 
-- **Discord**: [Join the Open Design Discord](https://github.com/nexu-io/open-design#community) — the main hub for questions, design discussions, and real-time help.
+- **Discord**: [Join the Open Design Discord](https://github.com/nexu-io/open-design#community) - the main hub for questions, design discussions, and real-time help.
 - **X (Twitter)**: Follow [@nexudotio](https://x.com/nexudotio) for project updates.
 - **GitHub Issues**: Bug reports, feature requests, and template proposals all go here.
 
@@ -107,7 +107,7 @@ export const myAgent: AgentDef = {
 };
 ```
 
-See `packages/runtime/src/types.ts` for the full `AgentDef` interface — it supports ACP JSON-RPC agents, HTTP-based agents (like the Anthropic API), binary fallbacks, and extra availability checks.
+See `packages/runtime/src/types.ts` for the full `AgentDef` interface - it supports ACP JSON-RPC agents, HTTP-based agents (like the Anthropic API), binary fallbacks, and extra availability checks.
 
 ### 2. Register the agent
 
@@ -212,7 +212,7 @@ See [RFC-02](research/2026-05-26-spec-02-template-metadata.md) for the complete 
 
 ## How to Add a New Engine Adapter
 
-The engine adapter interface ([RFC-01](research/2026-05-26-spec-01-engine-adapter.md)) lets any video rendering backend plug into html-video. The shipped adapter is `@html-video/adapter-hyperframes` — use it as the reference implementation.
+The engine adapter interface ([RFC-01](research/2026-05-26-spec-01-engine-adapter.md)) lets any video rendering backend plug into html-video. The shipped adapter is `@html-video/adapter-hyperframes` - use it as the reference implementation.
 
 ### 1. Create a new package
 
@@ -248,19 +248,19 @@ Key conventions from RFC-01:
 
 - **Process isolation**: Each `render()` spawns an independent subprocess. Subprocess crashes must reject the promise and leave no partial output files.
 - **Progress reporting**: 0-100% based on current frame / total frames. Stage hints: `preparing` (0-10%), `rendering` (10-95%), `muxing` (95-100%).
-- **Cancellation**: Respect `ctx.signal.aborted` — kill subprocess, cleanup workDir temp files, reject with `AbortError`.
+- **Cancellation**: Respect `ctx.signal.aborted` - kill subprocess, cleanup workDir temp files, reject with `AbortError`.
 - **Package naming**: `@html-video/adapter-<name>`, peer-depend on the upstream engine.
 
 ### 3. Register in core
 
-The core dynamically loads adapters — once your package is in `packages/` and listed in `pnpm-workspace.yaml`, it will be auto-discovered at runtime.
+The core dynamically loads adapters - once your package is in `packages/` and listed in `pnpm-workspace.yaml`, it will be auto-discovered at runtime.
 
 ---
 
 ## Code Style
 
 - **Language**: TypeScript (strict mode, `tsconfig.base.json` inheritance)
-- **Formatting**: [Biome](https://biomejs.dev/) — 2 spaces, single quotes, trailing commas, semicolons, LF line endings. Run `pnpm format` to auto-format.
+- **Formatting**: [Biome](https://biomejs.dev/) - 2 spaces, single quotes, trailing commas, semicolons, LF line endings. Run `pnpm format` to auto-format.
 - **Linting**: `pnpm lint` runs Biome linter with recommended rules.
 - **Monorepo tooling**: pnpm workspaces, `pnpm -r build` builds all packages in order.
 - **Imports**: Use `.js` extensions in TypeScript imports (for ESM compatibility).
@@ -279,9 +279,9 @@ pnpm test         # Run all tests
 ## How to Submit a Pull Request
 
 1. **Fork** the repository and create a branch from `main`.
-2. **Make your changes** — keep them focused. One PR = one logical change.
-3. **Test your changes** — run `pnpm typecheck && pnpm lint && pnpm test`.
-4. **Write a clear commit message** — follow conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`.
+2. **Make your changes** - keep them focused. One PR = one logical change.
+3. **Test your changes** - run `pnpm typecheck && pnpm lint && pnpm test`.
+4. **Write a clear commit message** - follow conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`.
 5. **Open a PR** against `nexu-io/html-video:main`.
 6. **Describe** what you changed, why, and how to verify it.
 
@@ -291,7 +291,7 @@ We review PRs regularly. If your PR adds a new feature, link to or include relat
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the [Apache-2.0 License](LICENSE) — same as the rest of the project. No contributor license agreement (CLA) is required.
+By contributing, you agree that your contributions will be licensed under the [Apache-2.0 License](LICENSE) - same as the rest of the project. No contributor license agreement (CLA) is required.
 
 ---
 
@@ -305,11 +305,11 @@ By contributing, you agree that your contributions will be licensed under the [A
 
 ## 中文 {#中文}
 
-感谢你有意为 html-video 贡献！html-video 是 [Open Design](https://github.com/nexu-io/open-design) 团队维护的 Apache-2.0 项目。我们欢迎所有形式的贡献 —— 代码、文档、模板、bug 反馈和想法。
+感谢你有意为 html-video 贡献！html-video 是 [Open Design](https://github.com/nexu-io/open-design) 团队维护的 Apache-2.0 项目。我们欢迎所有形式的贡献 -- 代码、文档、模板、bug 反馈和想法。
 
 ### 社区
 
-- **Discord**：[加入 Open Design Discord](https://github.com/nexu-io/open-design#community) — 主要的问答、设计讨论和实时求助渠道。
+- **Discord**：[加入 Open Design Discord](https://github.com/nexu-io/open-design#community) - 主要的问答、设计讨论和实时求助渠道。
 - **X（Twitter）**：关注 [@nexudotio](https://x.com/nexudotio) 获取项目动态。
 - **GitHub Issues**：提 bug、功能建议、模板提案都来这里。
 
@@ -388,7 +388,7 @@ export const myAgent: AgentDef = {
 };
 ```
 
-完整 `AgentDef` 接口见 `packages/runtime/src/types.ts` —— 它支持 ACP JSON-RPC agent、基于 HTTP 的 agent（如 Anthropic API）、二进制回退路径和额外的可用性检查。
+完整 `AgentDef` 接口见 `packages/runtime/src/types.ts` -- 它支持 ACP JSON-RPC agent、基于 HTTP 的 agent（如 Anthropic API）、二进制回退路径和额外的可用性检查。
 
 #### 2. 注册 agent
 
@@ -439,7 +439,7 @@ templates/frame-my-cool-animation/
 
 ### 如何添加新引擎适配器
 
-引擎适配器接口（[RFC-01](research/2026-05-26-spec-01-engine-adapter.md)）让任何视频渲染后端都能接入 html-video。已发布的适配器是 `@html-video/adapter-hyperframes` —— 用它作为参考实现。
+引擎适配器接口（[RFC-01](research/2026-05-26-spec-01-engine-adapter.md)）让任何视频渲染后端都能接入 html-video。已发布的适配器是 `@html-video/adapter-hyperframes` -- 用它作为参考实现。
 
 #### 1. 创建新包
 
@@ -460,13 +460,13 @@ packages/adapter-<engine>/
 
 - **进程隔离**：每次 `render()` 启动独立子进程。子进程崩溃必须 reject promise，不留下不完整的输出文件。
 - **进度报告**：按当前帧/总帧数算 0-100%。阶段提示：`preparing`（0-10%）、`rendering`（10-95%）、`muxing`（95-100%）。
-- **取消**：响应 `ctx.signal.aborted` —— 杀掉子进程，清理 workDir 临时文件，reject `AbortError`。
+- **取消**：响应 `ctx.signal.aborted` -- 杀掉子进程，清理 workDir 临时文件，reject `AbortError`。
 - **包命名**：`@html-video/adapter-<name>`，peer-depend 上游引擎。
 
 ### 代码风格
 
 - **语言**：TypeScript（strict 模式，继承 `tsconfig.base.json`）
-- **格式化**：[Biome](https://biomejs.dev/) —— 2 空格缩进、单引号、尾逗号、分号、LF 换行。运行 `pnpm format` 自动格式化。
+- **格式化**：[Biome](https://biomejs.dev/) -- 2 空格缩进、单引号、尾逗号、分号、LF 换行。运行 `pnpm format` 自动格式化。
 - **Lint**：`pnpm lint` 用 Biome linter 的推荐规则。
 - **单体仓库工具链**：pnpm workspace，`pnpm -r build` 按顺序构建所有包。
 - **Import**：TypeScript import 使用 `.js` 扩展名（ESM 兼容）。
@@ -483,9 +483,9 @@ pnpm test         # 运行所有测试
 ### 如何提交 Pull Request
 
 1. **Fork** 仓库，从 `main` 创建分支。
-2. **做出改动** —— 保持聚焦。一个 PR = 一个逻辑变更。
-3. **测试你的改动** —— 运行 `pnpm typecheck && pnpm lint && pnpm test`。
-4. **写清楚的 commit message** —— 遵循 conventional commits：`feat:`、`fix:`、`docs:`、`refactor:`、`test:`、`chore:`。
+2. **做出改动** -- 保持聚焦。一个 PR = 一个逻辑变更。
+3. **测试你的改动** -- 运行 `pnpm typecheck && pnpm lint && pnpm test`。
+4. **写清楚的 commit message** -- 遵循 conventional commits：`feat:`、`fix:`、`docs:`、`refactor:`、`test:`、`chore:`。
 5. **发起 PR** 到 `nexu-io/html-video:main`。
 6. **描述**你改了什么、为什么、怎么验证。
 
@@ -493,7 +493,7 @@ pnpm test         # 运行所有测试
 
 ### 许可
 
-贡献即表示你同意你的贡献将按照 [Apache-2.0 许可](LICENSE) 授权 —— 和项目其他部分一致。不需要签署贡献者协议（CLA）。
+贡献即表示你同意你的贡献将按照 [Apache-2.0 许可](LICENSE) 授权 -- 和项目其他部分一致。不需要签署贡献者协议（CLA）。
 
 ### 有问题？
 
