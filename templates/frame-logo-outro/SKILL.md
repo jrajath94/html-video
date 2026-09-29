@@ -37,7 +37,7 @@ od:
 ---
 
 【模板: Logo 收尾帧 (Logo Outro)】
-【意图】视频结尾的品牌 reveal 帧 —— logo 分块拼装 + glow bloom + tagline 上浮 + CTA。Inspired by hyperframes logo-outro。
+【意图】视频结尾的品牌 reveal 帧 -- logo 分块拼装 + glow bloom + tagline 上浮 + CTA。Inspired by hyperframes logo-outro。
 
 【画布】1920×1080, 黑色 `#08090c` 或品牌深色背景; 加微妙 vignette `radial-gradient(...)` 让中心更亮。
 
@@ -49,11 +49,11 @@ od:
 - **Tagline**: 品牌名下方一行 (24-28px, weight 400, opacity 0.7), fade in (1.8s)。
 - **底部 CTA + 元数据**: 双行底部 row, 例如 `htmlanything.dev · @htmlanything · 2026`, 11px uppercase letter-spacing 0.16em, 颜色 opacity 0.4, hairline 分隔。
 
-【调色 — 4 选 1, 不混用】
-- 🌌 **Midnight Indigo** — bg `#08090c`, accent `#7c5cff` (霓虹紫蓝 glow)。
-- 🌅 **Solar Amber** — bg `#0e0a08`, accent `#ffb547` (暖琥珀)。
-- 🌿 **Forest Mint** — bg `#0a1410`, accent `#5fb38a` (薄荷绿)。
-- ⚪ **Bone & Ink** — bg `#f1efea`, accent `#0a0a0b` (无 neon, 走 editorial 风, glow 改成阴影)。
+【调色 - 4 选 1, 不混用】
+- 🌌 **Midnight Indigo** - bg `#08090c`, accent `#7c5cff` (霓虹紫蓝 glow)。
+- 🌅 **Solar Amber** - bg `#0e0a08`, accent `#ffb547` (暖琥珀)。
+- 🌿 **Forest Mint** - bg `#0a1410`, accent `#5fb38a` (薄荷绿)。
+- ⚪ **Bone & Ink** - bg `#f1efea`, accent `#0a0a0b` (无 neon, 走 editorial 风, glow 改成阴影)。
 
 【设计细节】
 - **绝不**: 用外链 logo 图片; logo 必须用纯 CSS / 内联 SVG 几何绘制。
