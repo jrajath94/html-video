@@ -27,7 +27,7 @@ Joey 在前 3 份 RFC 写完后澄清核心工作流："产品内支持上传图
 
 **新核心命题**：
 - 用户不是"工程师 with template id 和 vars"，是"创作者 with 一堆图文 + 一句话意图"
-- HTML Storyboard 是关键中间产物——人可读、可调、可批准
+- HTML Storyboard 是关键中间产物--人可读、可调、可批准
 - 只有 Storyboard 通过用户验收才 render MP4，避免渲染浪费 + 让用户保留创作主导权
 
 **新护城河**：资产理解 + storyboard 编排 + 跨引擎渲染三层叠加，HF / Remotion 都没做前两层（他们假设用户已经知道想做什么）。
@@ -99,15 +99,15 @@ Joey 在前 3 份 RFC 写完后澄清核心工作流："产品内支持上传图
 
 | 类型 | 命名 | 例 |
 |---|---|---|
-| Repo | `nexu-io/html-video` | — |
-| Monorepo workspace | `pnpm` | — |
-| Core 包 | `@html-video/core` | — |
+| Repo | `nexu-io/html-video` | - |
+| Monorepo workspace | `pnpm` | - |
+| Core 包 | `@html-video/core` | - |
 | Adapter 包 | `@html-video/adapter-<engine-id>` | `@html-video/adapter-hyperframes` |
-| CLI 包 | `@html-video/cli` 或 binary 名 `html-video` | — |
+| CLI 包 | `@html-video/cli` 或 binary 名 `html-video` | - |
 | Agent skill 包 | `@html-video/agent-skill-<agent>` | `@html-video/agent-skill-claude-code` |
 | Template 包 | `@html-video/template-<kebab-id>` | `@html-video/template-data-bar-chart-race` |
-| Template metadata 文件 | `template.html-video.yaml` | — |
-| Config 文件 | `html-video.config.json` | — |
+| Template metadata 文件 | `template.html-video.yaml` | - |
+| Config 文件 | `html-video.config.json` | - |
 
 ---
 
@@ -157,7 +157,7 @@ Joey 在前 3 份 RFC 写完后澄清核心工作流："产品内支持上传图
 2. 音频混音 core helper vs adapter 各自处理？
 3. 字幕 burn-in / sidecar 谁烧？
 4. 资产 resolver（图片字体）放哪？
-5. 跨 engine retry —— v0.1 已决定不做
+5. 跨 engine retry -- v0.1 已决定不做
 
 ### 来自 RFC-02
 
