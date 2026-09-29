@@ -3,9 +3,9 @@ name: frame-pentagram-stat
 zh_name: "瑞士网格数据帧"
 en_name: "Pentagram Stat Frame"
 emoji: "📊"
-description: "Swiss-grid statistic anchor — giant number, red accent, growing bars, black data bar. Rational and editorial."
+description: "Swiss-grid statistic anchor - giant number, red accent, growing bars, black data bar. Rational and editorial."
 zh_description: "瑞士网格数据帧:巨大数字锚点 + 红色强调 + 生长条形图 + 黑色数据底栏, 理性克制的编辑风"
-en_description: "Swiss-grid statistic anchor — giant number, red accent, growing bars, black data bar. Rational and editorial."
+en_description: "Swiss-grid statistic anchor - giant number, red accent, growing bars, black data bar. Rational and editorial."
 category: video
 scenario: video
 aspect_hint: "1920×1080 (16:9)"
@@ -31,7 +31,7 @@ od:
     reload: debounce-100
   design_system:
     requires: false
-  example_prompt: "Use the Pentagram Stat Frame template to turn my key metric into a Swiss-grid data reveal — a giant number anchor, red accent, growing bar chart, and a black data bar. Preserve the template's visual signature, use real numbers, and avoid lorem ipsum or placeholder images."
+  example_prompt: "Use the Pentagram Stat Frame template to turn my key metric into a Swiss-grid data reveal - a giant number anchor, red accent, growing bar chart, and a black data bar. Preserve the template's visual signature, use real numbers, and avoid lorem ipsum or placeholder images."
   example_prompt_i18n:
     zh-CN: "用「瑞士网格数据帧」模板把我的关键指标做成一段瑞士风数据揭示:巨大数字锚点 + 红色强调 + 生长条形图 + 黑色数据底栏。保持模板的视觉签名,使用真实数字,避免 lorem ipsum 和占位图片。"
 ---
@@ -39,7 +39,7 @@ od:
 【模板: 瑞士网格数据帧 (Pentagram Stat)】
 【意图】单一关键指标 / benchmark 揭示 / 编辑风数据页。视觉提炼自 huashu-design 的 Pentagram 流派 (MIT, © alchaincyf)。
 
-【画布】1920×1080, 纯白底 `#ffffff`; 叠瑞士网格 — 水平/垂直细线 (黑, opacity 0.04-0.06), 开场 0.7s 内 scaleX/scaleY 从 0 扫入。
+【画布】1920×1080, 纯白底 `#ffffff`; 叠瑞士网格 - 水平/垂直细线 (黑, opacity 0.04-0.06), 开场 0.7s 内 scaleX/scaleY 从 0 扫入。
 
 【字体】西文 `Archivo` (900/700/500) 或 `Helvetica Neue`; 中文 `Noto Sans SC` Bold。理性、紧凑、负字距。
 
