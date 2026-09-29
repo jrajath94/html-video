@@ -52,7 +52,7 @@ UA 先建图（节点+边+依赖），再 topological sort 成"教学路径"。
 - 数据对比类：按重要度排
 - 教学类：按依赖排（concept A 必须在 concept B 之前出现）
 
-这是 html-video 现在完全没做的事 — 现在 agent 一次写一帧 HTML。如果用户给的是 5-frame 的 explainer，按 tour-builder 思路出来的会更连贯。
+这是 html-video 现在完全没做的事 - 现在 agent 一次写一帧 HTML。如果用户给的是 5-frame 的 explainer，按 tour-builder 思路出来的会更连贯。
 
 ### ★★★ 5. Persona-adaptive 渲染
 
@@ -86,7 +86,7 @@ UA 的金句："Graphs that teach > graphs that impress."
 
 v0.7 现在是直接 chat → HTML，**这条路径保留**作为快速入口（"我就要一帧"场景）。content-graph 路径是**升级路径**，给"我要做完整短视频"或者"我要把这份资料拆成 5 帧讲清楚"的用户。
 
-具体触发点 — agent 自己判断：
+具体触发点 - agent 自己判断：
 - 用户描述只对应一帧 → 走当前 v0.7 直接 HTML 路径
 - 用户给的是多概念 / 时间线 / 对比 → agent 先出 content-graph，再 frame 序列
 
