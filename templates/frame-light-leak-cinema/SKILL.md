@@ -35,7 +35,7 @@ od:
 ---
 
 【模板: 胶片漏光电影帧】
-【意图】纪录片 / 个人短片 / 视频章节卡的开场单帧 —— 暖橙漏光 + 35mm 颗粒 + 衬线大字, 古典胶片质感。Inspired by hyperframes light-leak。
+【意图】纪录片 / 个人短片 / 视频章节卡的开场单帧 -- 暖橙漏光 + 35mm 颗粒 + 衬线大字, 古典胶片质感。Inspired by hyperframes light-leak。
 
 【画布】
 - **2.39:1 letterbox** (推荐): 1920×800, 上下黑边各 140px (`#000`)。
