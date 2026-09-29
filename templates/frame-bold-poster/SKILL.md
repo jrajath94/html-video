@@ -3,9 +3,9 @@ name: frame-bold-poster
 zh_name: "大胆海报帧"
 en_name: "Bold Poster Frame"
 emoji: "🟥"
-description: "A 1970s European editorial poster in motion — a red rule draws across, a giant tilted figure drops in, a three-line headline rises line-by-line, an italic serif standfirst fades."
+description: "A 1970s European editorial poster in motion - a red rule draws across, a giant tilted figure drops in, a three-line headline rises line-by-line, an italic serif standfirst fades."
 zh_description: "大胆海报帧:1970s 欧洲社论海报风 + 番红强调色 + 巨型倾斜 Shrikhand 大字 + 三行标题逐行升起 + 衬线斜体副题, 印刷质感强。"
-en_description: "A 1970s European editorial poster in motion — a red rule draws across, a giant tilted figure drops in, a three-line headline rises line-by-line, an italic serif standfirst fades."
+en_description: "A 1970s European editorial poster in motion - a red rule draws across, a giant tilted figure drops in, a three-line headline rises line-by-line, an italic serif standfirst fades."
 category: video
 scenario: video
 aspect_hint: "1920×1080 (16:9)"
@@ -16,7 +16,7 @@ example_id: sample-frame-bold-poster
 example_name: "大胆海报帧 · Manifesto"
 example_format: markdown
 example_tagline: "番红 + 墨黑 + 巨型倾斜大字"
-example_desc: "品牌宣言 / 社论开场 — 红线划入 + 大字旋转落入 + 三行标题逐行升起"
+example_desc: "品牌宣言 / 社论开场 - 红线划入 + 大字旋转落入 + 三行标题逐行升起"
 example_source_url: "https://github.com/zarazhangrui/frontend-slides"
 example_source_label: "frontend-slides · Bold Poster (MIT)"
 od:
@@ -31,13 +31,13 @@ od:
     reload: debounce-100
   design_system:
     requires: false
-  example_prompt: "Use the Bold Poster Frame template to open my deck like a magazine cover — a mono kicker with a red rule drawing across, a giant tilted display figure, a three-line headline rising line-by-line (the middle line in red), and an italic serif standfirst. Preserve the template's print-poster signature, use real content, and avoid lorem ipsum or placeholder images."
+  example_prompt: "Use the Bold Poster Frame template to open my deck like a magazine cover - a mono kicker with a red rule drawing across, a giant tilted display figure, a three-line headline rising line-by-line (the middle line in red), and an italic serif standfirst. Preserve the template's print-poster signature, use real content, and avoid lorem ipsum or placeholder images."
   example_prompt_i18n:
     zh-CN: "用「大胆海报帧」模板把我的开场做成杂志封面感:mono kicker + 红线划过 + 巨型倾斜大字 + 三行标题逐行升起(中间行番红)+ 衬线斜体副题。保持印刷海报的视觉签名,使用真实内容,避免 lorem ipsum 和占位图片。"
 ---
 
 【模板: 大胆海报帧 (Bold Poster)】
-【意图】品牌宣言 / 愿景陈述 / 社论或文化类开场 — 让几个词像杂志封面一样落地。视觉提炼自 frontend-slides 的 Bold Poster 模板 (MIT, © Zara Zhang),其上游灵感为 1970s 欧洲社论海报 / 意大利体育杂志 / 中世纪品牌年报。
+【意图】品牌宣言 / 愿景陈述 / 社论或文化类开场 - 让几个词像杂志封面一样落地。视觉提炼自 frontend-slides 的 Bold Poster 模板 (MIT, © Zara Zhang),其上游灵感为 1970s 欧洲社论海报 / 意大利体育杂志 / 中世纪品牌年报。
 
 【画布】1920×1080, 暖白纸底 `#F5F2EF`。
 
@@ -55,7 +55,7 @@ od:
 
 【内容纪律】
 - headline 最多 3 行, 第 2 行自动番红; 必须真实标题, 严禁 lorem ipsum。
-- 版式为"少量大字陈述", 不适合塞段落 — 信息密度高的内容请换模板。
+- 版式为"少量大字陈述", 不适合塞段落 - 信息密度高的内容请换模板。
 - CJK 文本: letter-spacing 归 0、放松行高、不要对 CJK 做 uppercase。
 - 动效用 `@keyframes`, `prefers-reduced-motion` 下全部停在终态。
 - 单文件 HTML, 字体走 Google Fonts。
