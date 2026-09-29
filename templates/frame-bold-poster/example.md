@@ -17,7 +17,7 @@ loud.
 Make it last.
 
 ## Standfirst（衬线斜体副题）
-Every slide should land like a printed page — heavy type, one red accent, ruled in ink.
+Every slide should land like a printed page - heavy type, one red accent, ruled in ink.
 
 ## Footer
 左：Bold Poster
