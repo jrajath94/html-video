@@ -194,7 +194,7 @@ export interface HtmlSceneOutput {
 }
 ```
 
-**fallback**：如果 adapter 没实现 `renderToHtml`，core 提供 default 实现——直接 render MP4 然后 ffmpeg 抽 1 帧 + 包一个 video tag 的 HTML。这条路径慢但能用，鼓励 adapter 自己优化（HF / Remotion 都能直接出 HTML 不出 MP4）。
+**fallback**：如果 adapter 没实现 `renderToHtml`，core 提供 default 实现--直接 render MP4 然后 ffmpeg 抽 1 帧 + 包一个 video tag 的 HTML。这条路径慢但能用，鼓励 adapter 自己优化（HF / Remotion 都能直接出 HTML 不出 MP4）。
 
 ---
 
@@ -243,7 +243,7 @@ html-video storyboard render <storyboard_id> \
 
 ### 修订原来的 `render` 命令
 
-`html-video render --template ... --vars-file ...` 仍保留，但定位改为 **"开发者直跑单模板"**（template 测试 / CI 用）。**用户主流程不该走这个**——agent 应该用 `storyboard generate / edit / render` 三件套。
+`html-video render --template ... --vars-file ...` 仍保留，但定位改为 **"开发者直跑单模板"**（template 测试 / CI 用）。**用户主流程不该走这个**--agent 应该用 `storyboard generate / edit / render` 三件套。
 
 ---
 
@@ -334,12 +334,12 @@ project-root/
 
 | 修订项 | RFC-01 | RFC-02 | RFC-03 |
 |---|---|---|---|
-| EngineAdapter 加 `renderToHtml` | ✅ 修订（增量） | — | — |
-| Template metadata 加 `scene_role`（intro / data / cta / outro） | — | ✅ 修订（v0.2 加） | — |
-| Template metadata 加 `assets_consumed`（声明吃哪类 asset） | — | ✅ 修订（v0.2 加） | — |
-| CLI 加 `assets upload` / `storyboard generate / edit / preview / render` | — | — | ✅ 修订 |
-| SKILL.md 的工作流改成 storyboard-first | — | — | ✅ 修订 |
-| `html-video render --template ...` 降格为 dev-mode 命令 | — | — | ✅ 修订 |
+| EngineAdapter 加 `renderToHtml` | ✅ 修订（增量） | - | - |
+| Template metadata 加 `scene_role`（intro / data / cta / outro） | - | ✅ 修订（v0.2 加） | - |
+| Template metadata 加 `assets_consumed`（声明吃哪类 asset） | - | ✅ 修订（v0.2 加） | - |
+| CLI 加 `assets upload` / `storyboard generate / edit / preview / render` | - | - | ✅ 修订 |
+| SKILL.md 的工作流改成 storyboard-first | - | - | ✅ 修订 |
+| `html-video render --template ...` 降格为 dev-mode 命令 | - | - | ✅ 修订 |
 
 后续会话写代码时按这份 RFC-04 的优先级实现。
 
@@ -370,7 +370,7 @@ project-root/
 
 ## 给 Joey 的话
 
-这条澄清把 html-video 从"meta-aggregator + agent CLI" 升级成 **"asset-to-video 创作流水线"**——后者是真正有差异化的产品形态，HF / Remotion 都没做这件事，因为他们假设用户是开发者。**新护城河 = 资产理解 + storyboard 编排 + 跨引擎渲染**，三层一起才是 html-video。
+这条澄清把 html-video 从"meta-aggregator + agent CLI" 升级成 **"asset-to-video 创作流水线"**--后者是真正有差异化的产品形态，HF / Remotion 都没做这件事，因为他们假设用户是开发者。**新护城河 = 资产理解 + storyboard 编排 + 跨引擎渲染**，三层一起才是 html-video。
 
 下一步如果你点头，我会按修订后的 v0.1 MVP 范围动手写代码骨架（core 数据结构 + adapter-hyperframes + CLI 几个命令 + storyboard-ui 草稿）。
 
@@ -378,8 +378,8 @@ project-root/
 
 ## Open Questions（v0.2 待定）
 
-1. **资产理解** —— agent 拿到一堆图，怎么知道哪张是 logo / 产品 / 人物头像？v0.1 用 mime + 文件名启发；v0.2 接 vision model
-2. **AI 写文案** —— 用户没给文字只给图，agent 是否自动生成 caption？v0.1 提示用户补；v0.2 LLM 生成
-3. **音频自动选** —— 用户没传 BGM，是否从 license-free 库自动选？v0.1 不做；v0.2 接 Pixabay / FreePD API
-4. **数据自动可视化** —— 用户上传 CSV，agent 直接选 chart 类型？v0.1 让用户选；v0.2 用 grammar-of-graphics 启发
-5. **Storyboard 模板**（meta-template） —— 不只是单 scene，整片节奏（"先 intro 再 3 个 data 最后 cta"）也能模板化？v0.2 加 `storyboard-template` 概念
+1. **资产理解** -- agent 拿到一堆图，怎么知道哪张是 logo / 产品 / 人物头像？v0.1 用 mime + 文件名启发；v0.2 接 vision model
+2. **AI 写文案** -- 用户没给文字只给图，agent 是否自动生成 caption？v0.1 提示用户补；v0.2 LLM 生成
+3. **音频自动选** -- 用户没传 BGM，是否从 license-free 库自动选？v0.1 不做；v0.2 接 Pixabay / FreePD API
+4. **数据自动可视化** -- 用户上传 CSV，agent 直接选 chart 类型？v0.1 让用户选；v0.2 用 grammar-of-graphics 启发
+5. **Storyboard 模板**（meta-template） -- 不只是单 scene，整片节奏（"先 intro 再 3 个 data 最后 cta"）也能模板化？v0.2 加 `storyboard-template` 概念
