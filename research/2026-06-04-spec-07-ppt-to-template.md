@@ -4,7 +4,7 @@
 > **Date**: 2026-06-04
 > **Depends on**: [RFC-02 Template Metadata](./2026-05-26-spec-02-template-metadata.md)
 > **Scope**: 把开源的 PPT / 演示设计 skill（如 huashu-design、frontend-slides）系统化地
-> 转成可用的 hyperframes 视频模板的标准流程 —— 覆盖许可、三层署名、命名、转换质量、查重、交付。
+> 转成可用的 hyperframes 视频模板的标准流程 -- 覆盖许可、三层署名、命名、转换质量、查重、交付。
 
 ---
 
@@ -17,7 +17,7 @@ html-video 扩充模板库最现实的路径。
 但这条路径有真实的诚信风险，2026-06-04 的一次 audit 暴露了三个问题（见
 [provenance-audit](../notes/2026-06-04-provenance-audit.md)）：
 
-1. 署名链条缺层 —— 只认了 skill 作者，没认最上游真实工作室；或反过来直接挪用工作室名当模板名。
+1. 署名链条缺层 -- 只认了 skill 作者，没认最上游真实工作室；或反过来直接挪用工作室名当模板名。
 2. "original / no source copied" 是自我宣称，从未核实。
 3. 连示例数据都照搬上游，且新模板与已有模板视觉撞车（漏了查重）。
 
@@ -91,19 +91,19 @@ provenance:
   - ❌ `frame-pentagram-stat`、`Takram Radar`、`Build Minimal`
   - ✅ 用**描述设计特征**的中性名：`frame-editorial-anchor`、`frame-soft-radar`、`frame-luxe-minimal`
 - 理由：① 避免暗示"官方授权 / 联名"的误导；② L2 上游 huashu 自己的文档就明确告诫
-  *"❌ 不要直接写 in the style of Pentagram → ✅ 用具体设计特征描述"* —— 我们更该遵守。
+  *"❌ 不要直接写 in the style of Pentagram → ✅ 用具体设计特征描述"* -- 我们更该遵守。
 - 工作室名只出现在 `provenance.origin.name`（事实陈述：受其启发），不出现在面向用户的名字里。
 
 ## ④ 转换质量门槛（什么算"转化"，而非"换皮"）
 
 至少满足全部 3 条，才算合格的视频模板转换：
 
-1. **必须新增动效时间线** —— 静态页 → 真实的 CSS/SVG/GSAP `@keyframes` 时间线
+1. **必须新增动效时间线** -- 静态页 → 真实的 CSS/SVG/GSAP `@keyframes` 时间线
    （元素分阶段入场、数字升起、图形绘制等）。这是核心增值，没有动效就不是视频模板。
-2. **示例数据必须自有** —— ❌ 不照搬上游的占位数据（如 `95.7 / 73.8 / AIME / SWE-bench`），
+2. **示例数据必须自有** -- ❌ 不照搬上游的占位数据（如 `95.7 / 73.8 / AIME / SWE-bench`），
    换成 html-video / nexu 语境的自有示例。
-3. **可辨识的再设计** —— 配色 / 字体 / 版式至少做一处有意识的再设计，不 100% 像素级照抄。
-   （若上游配色就是该工作室的标志性识别色 —— 如 Pentagram 红 —— 可保留，但要在
+3. **可辨识的再设计** -- 配色 / 字体 / 版式至少做一处有意识的再设计，不 100% 像素级照抄。
+   （若上游配色就是该工作室的标志性识别色 -- 如 Pentagram 红 -- 可保留，但要在
    `transformation` 里说明"保留标志色"。）
 
 ## ⑤ 内部查重（2026-06-04 漏掉的那一步）
@@ -144,9 +144,9 @@ templates/frame-<descriptive-name>/
 | frame-pentagram-stat | Pentagram (Bierut) | huashu-design | 三层署名 + 重命名 + 自有示例 |
 | frame-build-minimal | Build studio | huashu-design | 同上 |
 | frame-takram-organic | Takram | huashu-design | 同上 |
-| frame-bold-signal | — | frontend-slides (Zara Zhang) | 补 L2 真实作者 |
-| frame-creative-voltage | — | frontend-slides | 同上 |
-| frame-electric-studio | — | frontend-slides | 同上 |
+| frame-bold-signal | - | frontend-slides (Zara Zhang) | 补 L2 真实作者 |
+| frame-creative-voltage | - | frontend-slides | 同上 |
+| frame-electric-studio | - | frontend-slides | 同上 |
 
 整改是独立的下一步，逐个改 + 验证渲染不破。
 
