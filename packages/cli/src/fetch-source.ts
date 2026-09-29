@@ -183,7 +183,7 @@ export function htmlToMarkdown(html: string): string {
   // Collapse whitespace: trim each line, drop 3+ blank lines.
   s = s
     .split('\n')
-    .map((l) => l.replace(/[ \t ]+/g, ' ').trimEnd())
+    .map((l) => l.replace(/[ \t ]+/g, ' ').trimEnd())
     .join('\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
