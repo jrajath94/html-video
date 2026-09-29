@@ -47,7 +47,7 @@ od:
   - cyan `#00f0ff` translate(`-3px`, `1px`)。
   - magenta `#ff2bd6` translate(`3px`, `-1px`)。
 - 整层加 clip-path 切片 5-8 段, 每段 `@keyframes` 随机 translateX -10px → 10px, 持续 80-160ms, 错峰播放, 营造 "data corruption" 像散。
-- 每隔 1.5s 触发一次"重故障" — 整个标题被 horizontal smear 1 frame, 用 `filter: url(#displacementFilter)` 或简单 CSS 平移。
+- 每隔 1.5s 触发一次"重故障" - 整个标题被 horizontal smear 1 frame, 用 `filter: url(#displacementFilter)` 或简单 CSS 平移。
 
 【附加层】
 - 顶部一行 caption (uppercase mono, 11px, opacity 0.6): `>> SIGNAL_LOST · CH-04 · 14:32:08`。
