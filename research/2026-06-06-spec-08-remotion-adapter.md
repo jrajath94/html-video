@@ -4,7 +4,7 @@
 > **Date**: 2026-06-06
 > **Scope**: 把 Remotion 接成 `@html-video/adapter-remotion`，作为继 hyperframes 之后第一个真正异范式的 backend。
 > **依赖**: RFC-01（Engine Adapter 接口）/ RFC-02（Template metadata）/ RFC-06（Content Graph）
-> **决策**: Joey 已拍板 **两者都要、分阶段**——Phase 1 HTML→Remotion 桥接（兜底），Phase 2 原生 .tsx 模板（进阶）。本文先文档，确认后写 PoC。
+> **决策**: Joey 已拍板 **两者都要、分阶段**--Phase 1 HTML→Remotion 桥接（兜底），Phase 2 原生 .tsx 模板（进阶）。本文先文档，确认后写 PoC。
 
 ---
 
@@ -13,7 +13,7 @@
 整合 Remotion 不是"加个引擎"那么简单，它是**第一次真正把 meta-aggregator 卖点做实**。当前事实：
 
 - RFC-01 把 4 引擎接口设计得完整，Remotion 的 capability 声明也早写好了（见 RFC-01 §"Remotion"）。
-- 但运行时**只有 `adapter-hyperframes` 一个适配器，而且它根本没用 Hyperframes**——它是 Playwright 录屏 + ffmpeg 转码（`packages/adapter-hyperframes/src/render.ts` 开头注释自陈：*"Upstream Hyperframes was never required at runtime for this adapter"*）。
+- 但运行时**只有 `adapter-hyperframes` 一个适配器，而且它根本没用 Hyperframes**--它是 Playwright 录屏 + ffmpeg 转码（`packages/adapter-hyperframes/src/render.ts` 开头注释自陈：*"Upstream Hyperframes was never required at runtime for this adapter"*）。
 - **结论**：现状 = 单引擎（Chromium 录屏），挂着"多引擎 pluggable"的招牌。README / launch 叙事的核心差异化目前是**空的**。
 
 Remotion adapter 是兑现 `EngineAdapter` 抽象的第一个真实证明：它是**异范式**（react-tsx vs html-css-gsap）、**异渲染路径**（deterministic 逐帧 vs 实时录屏）、**异 license**（commercial-restricted vs free-osi）。把它接通，三件事同时成立：
@@ -40,12 +40,12 @@ RFC-01 当初写下的 Remotion 假设，**逐条仍然成立**：
 **License 是这个 adapter 的一等公民**（不是脚注）：html-video 是开源 meta-layer，用户里大量是 4+ 人团队。adapter 的 `capabilities.licensing = 'commercial-restricted'` 必须**真实暴露给 agent**，让 agent 在"自由/省钱"场景能主动避开 Remotion、推 hyperframes/revideo。这是我们相对"只会 Remotion"的工具的诚实优势，要讲出来。
 
 来源（核对依据）：
-- Remotion pricing & license — https://www.remotion.dev/license / https://remotion.pro
-- `@remotion/renderer` SSR Node API — https://www.remotion.dev/docs/ssr-node / https://www.remotion.dev/docs/renderer/render-media
-- `bundle()` — https://www.remotion.dev/docs/bundle
-- `<IFrame>` — https://www.remotion.dev/docs/iframe
-- `<Img>` / `staticFile()` — https://www.remotion.dev/docs/img / https://www.remotion.dev/docs/staticfile
-- HTML-in-canvas（实验特性）— https://www.remotion.dev/docs/client-side-rendering/html-in-canvas
+- Remotion pricing & license - https://www.remotion.dev/license / https://remotion.pro
+- `@remotion/renderer` SSR Node API - https://www.remotion.dev/docs/ssr-node / https://www.remotion.dev/docs/renderer/render-media
+- `bundle()` - https://www.remotion.dev/docs/bundle
+- `<IFrame>` - https://www.remotion.dev/docs/iframe
+- `<Img>` / `staticFile()` - https://www.remotion.dev/docs/img / https://www.remotion.dev/docs/staticfile
+- HTML-in-canvas（实验特性）- https://www.remotion.dev/docs/client-side-rendering/html-in-canvas
 
 ---
 
@@ -90,17 +90,17 @@ export const HtmlFrame: React.FC<{ src: string }> = ({ src }) => (
 
 `<IFrame>` 会自动 `delayRender()` 等 `onLoad`，文件加载没问题。**但官方明确警告**（iframe 文档 + img 文档都强调）：
 
-> 内嵌网页**最好没有动画**——只有 `useCurrentFrame()` 驱动的动画会被 Remotion 同步，**否则会闪烁 / 动画不同步**。
+> 内嵌网页**最好没有动画**--只有 `useCurrentFrame()` 驱动的动画会被 Remotion 同步，**否则会闪烁 / 动画不同步**。
 
-机制：Remotion 渲染是 **deterministic 逐帧**——它把时间钟"冻"在第 N 帧、截图、再跳到第 N+1 帧。而 CSS keyframes / GSAP 用的是**浏览器自己的 wall-clock**（`requestAnimationFrame` / `Date.now()`），跟 Remotion 的逐帧时钟**完全脱钩**。结果：Remotion 截每一帧时，iframe 内的动画处在"随机的真实时间点"，每帧之间不连续 → 闪烁/抖动。
+机制：Remotion 渲染是 **deterministic 逐帧**--它把时间钟"冻"在第 N 帧、截图、再跳到第 N+1 帧。而 CSS keyframes / GSAP 用的是**浏览器自己的 wall-clock**（`requestAnimationFrame` / `Date.now()`），跟 Remotion 的逐帧时钟**完全脱钩**。结果：Remotion 截每一帧时，iframe 内的动画处在"随机的真实时间点"，每帧之间不连续 → 闪烁/抖动。
 
-**这恰恰是我们 27 个模板的命门**——它们全是 CSS/GSAP 动画（hyperframes adapter 里那段 probe `animationDuration` / `gsap.globalTimeline` 的逻辑就是在伺候这些动画）。所以朴素 `<IFrame src>` 桥接 = **动画全乱**。
+**这恰恰是我们 27 个模板的命门**--它们全是 CSS/GSAP 动画（hyperframes adapter 里那段 probe `animationDuration` / `gsap.globalTimeline` 的逻辑就是在伺候这些动画）。所以朴素 `<IFrame src>` 桥接 = **动画全乱**。
 
 ### 3.2 解法：时间钟桥接（time-driver injection）
 
 要让 iframe 内的 CSS/GSAP 动画跟 Remotion 的逐帧时钟同步，桥接组件在每一帧把 Remotion 的当前时间**注入 iframe 并强制把动画"seek"到那个时间点**。两种实现强度，递进选择：
 
-**(A) CSS Animation 同步——`document.getAnimations()` + `currentTime`**（首选，覆盖纯 CSS keyframes 模板）
+**(A) CSS Animation 同步--`document.getAnimations()` + `currentTime`**（首选，覆盖纯 CSS keyframes 模板）
 
 ```tsx
 const frame = useCurrentFrame();
@@ -115,7 +115,7 @@ iframe.contentWindow.document.getAnimations().forEach(a => {
 
 Web Animations API 的 `getAnimations()` 能拿到 CSS keyframes 动画句柄，`currentTime` 可精确 seek。这把"浏览器 wall-clock 驱动"换成"Remotion 帧驱动"，逐帧一致、零闪烁。
 
-**(B) GSAP 同步——驱动 `gsap.globalTimeline`**（覆盖 GSAP 模板）
+**(B) GSAP 同步--驱动 `gsap.globalTimeline`**（覆盖 GSAP 模板）
 
 ```tsx
 const tl = iframe.contentWindow.gsap?.globalTimeline;
@@ -124,9 +124,9 @@ if (tl) { tl.pause(); tl.time(tMs / 1000); }   // seek 到秒
 
 GSAP timeline 本就支持 `.time(seconds)` seek + `.pause()`，比 CSS 还好控。hyperframes adapter 已经在读 `gsap.globalTimeline.getChildren()`，证明模板里 GSAP 实例在 `window.gsap` 上可达。
 
-**(C) 注入策略**：桥接组件 mount 时用 `useDelayRender` 等 iframe `onLoad` → 拿 `contentWindow` → 每帧 seek。把 (A)+(B) 合成一个 `<HtmlFrameDriver>` 组件，对模板**无侵入**（不要求模板改代码，只要求动画跑在 CSS Animations 或全局 GSAP timeline 上——我们 27 个模板都满足）。
+**(C) 注入策略**：桥接组件 mount 时用 `useDelayRender` 等 iframe `onLoad` → 拿 `contentWindow` → 每帧 seek。把 (A)+(B) 合成一个 `<HtmlFrameDriver>` 组件，对模板**无侵入**（不要求模板改代码，只要求动画跑在 CSS Animations 或全局 GSAP timeline 上--我们 27 个模板都满足）。
 
-> ⚠️ 同源限制：`contentWindow.document` 访问要求 iframe 同源。`staticFile()` 出来的本地 HTML 在 bundle 里同源，OK；远程 URL 会被跨域挡住——桥接只对**本地 HTML 帧**生效（正是我们的用例），远程页面退回"无动画静态嵌入"。
+> ⚠️ 同源限制：`contentWindow.document` 访问要求 iframe 同源。`staticFile()` 出来的本地 HTML 在 bundle 里同源，OK；远程 URL 会被跨域挡住--桥接只对**本地 HTML 帧**生效（正是我们的用例），远程页面退回"无动画静态嵌入"。
 
 ### 3.3 备选：HTML-in-canvas（实验特性，先不用）
 
@@ -136,10 +136,10 @@ Chrome 149+ 有实验 API `allowHtmlInCanvas`，整帧截 HTML 不靠 CSS 模拟
 
 桥接方案把 Remotion 当"**一个换皮的逐帧 Chromium 渲染器**"用。相比现有 Playwright 录屏，它的**真实增益**有限但具体：
 
-- ✅ deterministic 逐帧（不丢帧、不受机器负载抖动影响时长——Playwright 录屏靠 wall-clock 录制，机器卡了就丢帧）
+- ✅ deterministic 逐帧（不丢帧、不受机器负载抖动影响时长--Playwright 录屏靠 wall-clock 录制，机器卡了就丢帧）
 - ✅ 接上 Remotion 多轨音频 / `<Audio>` / 字幕生态
 - ✅ 一行切到 `renderMediaOnLambda` 做云端规模化（hyperframes adapter 没有这条路）
-- ⚠️ **但桥接本身不解锁 Remotion 的招牌能力**（数据驱动动画、`spring()`、`interpolate()` 等）——那些要 Phase 2 原生模板才有。
+- ⚠️ **但桥接本身不解锁 Remotion 的招牌能力**（数据驱动动画、`spring()`、`interpolate()` 等）--那些要 Phase 2 原生模板才有。
 
 所以 Phase 1 的卖点是"**多引擎成立 + Lambda 可扩展 + deterministic**"，不是"动画更强"。文档/对外别夸过头。
 
@@ -151,7 +151,7 @@ Chrome 149+ 有实验 API `allowHtmlInCanvas`，整帧截 HTML 不靠 CSS 模拟
 
 ### 4.1 这才是 Remotion 的差异化价值
 
-- **数据驱动动画**：`interpolate(frame, [0,30],[0,100])` + `spring()`——柱状图涨、数字滚动、折线生长。正是 RFC-01 capability 里写的 `bestFor: ['data-driven', 'long-form-narration']`。content-graph 的 `data` 节点（RFC-06）天生适配。
+- **数据驱动动画**：`interpolate(frame, [0,30],[0,100])` + `spring()`--柱状图涨、数字滚动、折线生长。正是 RFC-01 capability 里写的 `bestFor: ['data-driven', 'long-form-narration']`。content-graph 的 `data` 节点（RFC-06）天生适配。
 - **逐帧精确 + 长片**：narration 旁白对齐、章节、长时间轴。
 - **Lambda 规模化 + 参数化批量**：同一 `<Composition>` 喂不同 `inputProps` 批量出片。
 
@@ -205,15 +205,15 @@ Phase 2 = **建第二套模板生态**（不是改 adapter）。要：① 起码
 
 ### bundle() 复用（性能）
 
-`bundle()` 是 webpack 打包，**贵、应只跑一次**。多帧渲染（content-graph 多节点）时：bundle 一次 → 循环 `selectComposition` + `renderMedia` 喂不同 `inputProps.htmlSrc`。adapter 内缓存 bundleLocation。这跟 hyperframes adapter 的"per-frame 独立录屏 + 上层 concat"不同——Remotion 这条更省。
+`bundle()` 是 webpack 打包，**贵、应只跑一次**。多帧渲染（content-graph 多节点）时：bundle 一次 → 循环 `selectComposition` + `renderMedia` 喂不同 `inputProps.htmlSrc`。adapter 内缓存 bundleLocation。这跟 hyperframes adapter 的"per-frame 独立录屏 + 上层 concat"不同--Remotion 这条更省。
 
 ---
 
 ## 6. License 边界与对外口径
 
 - adapter 的 `capabilities.licensing = 'commercial-restricted'` **必须真实**；agent 决策时据此提示用户"4+ 人团队商用需 Remotion 商业 license"。
-- **html-video 自身（Apache-2.0）不受影响**——我们只在 `peerDependencies` 引 Remotion，不打包、不分发 Remotion 代码。用户自己 `pnpm add remotion` 时同意其 license。这跟我们引 Playwright（Apache-2.0）是两种 license 关系，README/ATTRIBUTIONS 要写清。
-- **对外别把 Remotion 当默认引擎宣传**——默认仍是 free-osi 的 hyperframes(playwright)/revideo 路线，Remotion 是"你的团队已经在用 React / 需要 Lambda 规模"时的可选项。这保护"开源、自由"的产品定位。
+- **html-video 自身（Apache-2.0）不受影响**--我们只在 `peerDependencies` 引 Remotion，不打包、不分发 Remotion 代码。用户自己 `pnpm add remotion` 时同意其 license。这跟我们引 Playwright（Apache-2.0）是两种 license 关系，README/ATTRIBUTIONS 要写清。
+- **对外别把 Remotion 当默认引擎宣传**--默认仍是 free-osi 的 hyperframes(playwright)/revideo 路线，Remotion 是"你的团队已经在用 React / 需要 Lambda 规模"时的可选项。这保护"开源、自由"的产品定位。
 - ATTRIBUTIONS.md 需加 Remotion 条目（作者 Jonny Burger / remotion.pro / license 链接 / "not affiliated"）。
 
 ---
@@ -233,7 +233,7 @@ Phase 2 = **建第二套模板生态**（不是改 adapter）。要：① 起码
 **Open Questions（PoC 阶段定）**：
 
 1. 桥接组件放 adapter 包内（bundle 时一起打），还是生成到项目 workDir？倾向**包内**（用户不该看到桥接胶水）。
-2. `duration='auto'` 的动画探测——复用 hyperframes adapter 的 probe 逻辑（抽成 `@html-video/core` 共享 helper），还是在桥接组件内用 `getAnimations()` 算？倾向**抽 core helper**，两 adapter 共用。
+2. `duration='auto'` 的动画探测--复用 hyperframes adapter 的 probe 逻辑（抽成 `@html-video/core` 共享 helper），还是在桥接组件内用 `getAnimations()` 算？倾向**抽 core helper**，两 adapter 共用。
 3. preview() 是否做？Phase 1 可先不做（OS 跑 render 即可），studio 现有 iframe 实时预览已覆盖看动效需求。
 
 ---
