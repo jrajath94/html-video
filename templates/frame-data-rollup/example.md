@@ -1,4 +1,4 @@
-# Example — frame-data-rollup
+# Example - frame-data-rollup
 
 A native Remotion data frame: five weekday bars grow from zero while their
 figures roll up to the real values, finishing together.
@@ -20,7 +20,7 @@ figures roll up to the real values, finishing together.
 }
 ```
 
-## Variant — units + custom palette
+## Variant - units + custom palette
 
 ```json
 {
@@ -44,5 +44,5 @@ figures roll up to the real values, finishing together.
 - The data above arrives as Remotion `inputProps`; the component animates it with
   `spring()` (bar height) + `interpolate()` (rolling number).
 - Bars cascade in with a per-bar stagger; each number and its bar settle together.
-- This is the enhancement a user opts a single data frame into — neighbor frames
+- This is the enhancement a user opts a single data frame into - neighbor frames
   in the same video stay hyperframes HTML, and ffmpeg concatenates them into one MP4.
