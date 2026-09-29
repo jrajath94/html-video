@@ -3,9 +3,9 @@ name: frame-bold-signal
 zh_name: "大胆信号卡帧"
 en_name: "Bold Signal Frame"
 emoji: "🔶"
-description: "Bold colored card on a dark gradient — big section number, nav breadcrumb, orange card sliding in, title rising."
+description: "Bold colored card on a dark gradient - big section number, nav breadcrumb, orange card sliding in, title rising."
 zh_description: "大胆信号卡帧:暗渐变底 + 大编号 + 导航面包屑 + 橙色卡片滑入 + 标题升起, 高冲击力"
-en_description: "Bold colored card on a dark gradient — big section number, nav breadcrumb, orange card sliding in, title rising."
+en_description: "Bold colored card on a dark gradient - big section number, nav breadcrumb, orange card sliding in, title rising."
 category: video
 scenario: video
 aspect_hint: "1920×1080 (16:9)"
@@ -16,7 +16,7 @@ example_id: sample-frame-bold-signal
 example_name: "大胆信号帧 · 01/04"
 example_format: markdown
 example_tagline: "暗渐变底 + 橙色焦点卡 + 大编号"
-example_desc: "章节分隔 / 大胆陈述 — 橙卡从右滑入 + 标题升起"
+example_desc: "章节分隔 / 大胆陈述 - 橙卡从右滑入 + 标题升起"
 example_source_url: "https://github.com/zarazhangrui/frontend-slides"
 example_source_label: "frontend-slides · Bold Signal (MIT)"
 od:
@@ -31,7 +31,7 @@ od:
     reload: debounce-100
   design_system:
     requires: false
-  example_prompt: "Use the Bold Signal Frame template to turn my section into a bold colored-card divider — a big section number, a nav breadcrumb, and a vibrant orange card sliding in from the right with the title rising. Preserve the template's visual signature, use real content, and avoid lorem ipsum or placeholder images."
+  example_prompt: "Use the Bold Signal Frame template to turn my section into a bold colored-card divider - a big section number, a nav breadcrumb, and a vibrant orange card sliding in from the right with the title rising. Preserve the template's visual signature, use real content, and avoid lorem ipsum or placeholder images."
   example_prompt_i18n:
     zh-CN: "用「大胆信号卡帧」模板把我的章节做成一段大胆色卡分隔:大编号 + 导航面包屑 + 鲜橙卡片从右滑入 + 标题升起。保持模板的视觉签名,使用真实内容,避免 lorem ipsum 和占位图片。"
 ---
