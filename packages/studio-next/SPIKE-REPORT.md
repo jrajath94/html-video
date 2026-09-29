@@ -1,7 +1,7 @@
-# Spike report — hyperframes/studio integration (2026-05-29)
+# Spike report - hyperframes/studio integration (2026-05-29)
 
 Verdict: **plan A (rebuild html-video studio on top of hf NLELayout) costs
-several weeks, not one. Pivot to plan B — keep the current vanilla studio,
+several weeks, not one. Pivot to plan B - keep the current vanilla studio,
 borrow the small leaf components.**
 
 ## What we tried
@@ -18,7 +18,7 @@ borrow the small leaf components.**
 
 - **Vite imports `@hyperframes/studio` cleanly.** No transpiler tweaks needed.
 - **`SourceEditor` (CodeMirror 6 wrapper for HTML/CSS/JS)** renders and edits
-  out of the box — confirmed in the earlier two-pane spike.
+  out of the box - confirmed in the earlier two-pane spike.
 - **`hyperframes` runtime auto-injection** is real: hf Player polls the iframe
   every 200ms, detects `__timelines` (GSAP) or absence and injects an IIFE
   shim. Our agent-generated frames are valid hosts for this.
@@ -85,14 +85,14 @@ Both choices wreck the v0.8 phase-driven flow.
    vanilla studio via an `<iframe>` portal or a tiny standalone bundle.
    No need to React-migrate the main app.
 5. **If we ever want NLE-style editing**, the path is to ship our own
-   timeline UI on top of our existing frames[] model — not to reshape our
+   timeline UI on top of our existing frames[] model - not to reshape our
    model to fit hf's.
 
 ## Out of scope for this report
 
 - Alternatives like Remotion / Motion Canvas / Revideo as backend (we're a
-  meta-aggregator anyway — they're future).
+  meta-aggregator anyway - they're future).
 - Building a hf-compatible backend so `Player` works as designed. Doable
   but ~1 week, and the resulting integration still won't surface our
-  5-phase chat or ContentGraph — it's a parallel UI for editing one
+  5-phase chat or ContentGraph - it's a parallel UI for editing one
   composition at a time.
