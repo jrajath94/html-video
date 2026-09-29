@@ -9,7 +9,7 @@ Context · Memory · Evolution
 A design agent that **remembers**.
 
 ## Caption
-Eight context nodes feed one evolving core — every project makes the next one sharper.
+Eight context nodes feed one evolving core - every project makes the next one sharper.
 
 ## 节点数
 8
