@@ -4,7 +4,7 @@ Several templates in this directory are forked from upstream projects.
 Original licenses apply; see each template's `template.html-video.yaml`
 `assets_attribution` block for the canonical source URL.
 
-## Apache-2.0 — `heygen-com/hyperframes` (registry/examples)
+## Apache-2.0 - `heygen-com/hyperframes` (registry/examples)
 
 The following templates are direct forks (HTML + composition files unchanged
 besides being placed under our directory layout) of
@@ -26,7 +26,7 @@ Per the Apache-2.0 license:
 - Each template's `template.html-video.yaml` records the upstream URL
   in `assets_attribution`.
 
-## MIT — `nateherkai/hyperframes-student-kit`
+## MIT - `nateherkai/hyperframes-student-kit`
 
 The following templates derive from
 [nateherkai/hyperframes-student-kit](https://github.com/nateherkai/hyperframes-student-kit/tree/main/video-projects).
