@@ -3,9 +3,9 @@ name: frame-electric-studio
 zh_name: "电光工作室分屏帧"
 en_name: "Electric Studio Frame"
 emoji: "🔷"
-description: "Two-panel split with quote as hero — white/blue panels open from center, accent bar grows, quote reveals line by line."
+description: "Two-panel split with quote as hero - white/blue panels open from center, accent bar grows, quote reveals line by line."
 zh_description: "电光工作室分屏帧:白/蓝双屏从中心开合 + 强调条生长 + 引言逐行浮现, 高对比专业感"
-en_description: "Two-panel split with quote as hero — white/blue panels open from center, accent bar grows, quote reveals line by line."
+en_description: "Two-panel split with quote as hero - white/blue panels open from center, accent bar grows, quote reveals line by line."
 category: video
 scenario: video
 aspect_hint: "1920×1080 (16:9)"
@@ -16,7 +16,7 @@ example_id: sample-frame-electric-studio
 example_name: "电光分屏帧 · 引言"
 example_format: markdown
 example_tagline: "白/蓝双屏开合 + 引言逐行浮现"
-example_desc: "pull-quote / 使命陈述 — 黑色 accent 条 + 跨屏引言"
+example_desc: "pull-quote / 使命陈述 - 黑色 accent 条 + 跨屏引言"
 example_source_url: "https://github.com/zarazhangrui/frontend-slides"
 example_source_label: "frontend-slides · Electric Studio (MIT)"
 od:
@@ -31,7 +31,7 @@ od:
     reload: debounce-100
   design_system:
     requires: false
-  example_prompt: "Use the Electric Studio Frame template to turn my quote into a two-panel split reveal — white top and electric-blue bottom panels opening from center, a black accent bar growing on the seam, and the quote revealing line by line. Preserve the template's visual signature, use real content, and avoid lorem ipsum or placeholder images."
+  example_prompt: "Use the Electric Studio Frame template to turn my quote into a two-panel split reveal - white top and electric-blue bottom panels opening from center, a black accent bar growing on the seam, and the quote revealing line by line. Preserve the template's visual signature, use real content, and avoid lorem ipsum or placeholder images."
   example_prompt_i18n:
     zh-CN: "用「电光工作室分屏帧」模板把我的引言做成一段双屏开合揭示:白色上屏 + 电光蓝下屏从中心开合 + 接缝处黑色强调条生长 + 引言逐行浮现。保持模板的视觉签名,使用真实内容,避免 lorem ipsum 和占位图片。"
 ---
