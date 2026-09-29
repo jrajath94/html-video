@@ -9,10 +9,10 @@
 
 ## 设计目标
 
-1. **加新 backend 不改 core** —— 一个 backend = 一个独立 npm 包 `@html-video/adapter-<name>`，实现 `EngineAdapter` 接口即可
-2. **agent 友好** —— `capabilities` 让 agent 程序化地决策"这个用例选哪个 engine"
-3. **不强求功能并集** —— 弱 engine 不必假装支持所有功能，`validate()` 返回明确的 fail reason
-4. **不发明 authoring 范式** —— 用户写的还是 HTML / React / TS-generator 原生，html-video 不引入第四种 DSL
+1. **加新 backend 不改 core** -- 一个 backend = 一个独立 npm 包 `@html-video/adapter-<name>`，实现 `EngineAdapter` 接口即可
+2. **agent 友好** -- `capabilities` 让 agent 程序化地决策"这个用例选哪个 engine"
+3. **不强求功能并集** -- 弱 engine 不必假装支持所有功能，`validate()` 返回明确的 fail reason
+4. **不发明 authoring 范式** -- 用户写的还是 HTML / React / TS-generator 原生，html-video 不引入第四种 DSL
 
 ---
 
@@ -396,6 +396,6 @@ export interface NativeTemplateRef {
 
 1. **template variables 的 schema 校验**：放 core 还是 adapter？目前倾向 core 用 zod 统一校验（agent 可读 schema 推参数）。
 2. **音频混音**：core 提供帮工具（ffmpeg 调）还是 adapter 各自处理？倾向 core helper，因为 ffmpeg 不该重复封装。
-3. **字幕**：burn-in / sidecar 谁烧入？倾向 adapter——某些 engine 已原生支持。
+3. **字幕**：burn-in / sidecar 谁烧入？倾向 adapter--某些 engine 已原生支持。
 4. **资产打包**：用户引用的图片 / 视频 / 字体怎么收集进 render context？倾向 core 提供 `AssetResolver`，adapter 收 resolved paths。
 5. **跨 engine retry**：如果 HF 渲染挂，core 是否自动 fallback 到 Revideo？v0.1 不做（决策权给 agent，不偷偷换 engine）。
