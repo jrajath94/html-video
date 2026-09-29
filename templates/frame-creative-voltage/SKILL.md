@@ -3,9 +3,9 @@ name: frame-creative-voltage
 zh_name: "创意电压分屏帧"
 en_name: "Creative Voltage Frame"
 emoji: "⚡"
-description: "Electric split with hand-drawn script — offset panels slide in, display title rises with an outlined word, script strokes itself in."
+description: "Electric split with hand-drawn script - offset panels slide in, display title rises with an outlined word, script strokes itself in."
 zh_description: "创意电压分屏帧:电光蓝/暗错位分屏滑入 + 描边电光词 + 手写 script 自描, 复古现代有活力"
-en_description: "Electric split with hand-drawn script — offset panels slide in, display title rises with an outlined word, script strokes itself in."
+en_description: "Electric split with hand-drawn script - offset panels slide in, display title rises with an outlined word, script strokes itself in."
 category: video
 scenario: video
 aspect_hint: "1920×1080 (16:9)"
@@ -16,7 +16,7 @@ example_id: sample-frame-creative-voltage
 example_name: "创意电压帧 · make it move"
 example_format: markdown
 example_tagline: "电光蓝/暗错位分屏 + 手写 script 自描"
-example_desc: "能量感品牌标题 — 描边电光词 + 手写体描入 + 扫入下划线"
+example_desc: "能量感品牌标题 - 描边电光词 + 手写体描入 + 扫入下划线"
 example_source_url: "https://github.com/zarazhangrui/frontend-slides"
 example_source_label: "frontend-slides · Creative Voltage (MIT)"
 od:
@@ -31,7 +31,7 @@ od:
     reload: debounce-100
   design_system:
     requires: false
-  example_prompt: "Use the Creative Voltage Frame template to turn my title into an energetic split reveal — electric-blue and dark panels sliding in offset, a display title rising with one outlined electric word, and a handwritten script stroking itself in. Preserve the template's visual signature, use real content, and avoid lorem ipsum or placeholder images."
+  example_prompt: "Use the Creative Voltage Frame template to turn my title into an energetic split reveal - electric-blue and dark panels sliding in offset, a display title rising with one outlined electric word, and a handwritten script stroking itself in. Preserve the template's visual signature, use real content, and avoid lorem ipsum or placeholder images."
   example_prompt_i18n:
     zh-CN: "用「创意电压分屏帧」模板把我的标题做成一段能量感分屏揭示:电光蓝与暗色面板错位滑入 + 标题升起带一个描边电光词 + 手写体自描入。保持模板的视觉签名,使用真实内容,避免 lorem ipsum 和占位图片。"
 ---
