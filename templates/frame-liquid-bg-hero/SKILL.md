@@ -39,7 +39,7 @@ od:
 
 【画布】1920×1080 (横) 或 1080×1920 (竖), 二选一。背景占满。
 
-【流体背景 — 3 种实现, 按用户偏好选】
+【流体背景 - 3 种实现, 按用户偏好选】
 1. **CSS 多层 radial-gradient 错位呼吸** (最稳, 默认推荐):
    - 3-5 个大椭圆 `radial-gradient(...)`, 颜色取自调色板。
    - 每个椭圆套 `@keyframes` 平移 + scale + hue-rotate, 周期 8-14s, 错峰; 整个画面叠 `mix-blend-mode: screen` 或 `overlay`。
@@ -57,11 +57,11 @@ od:
 - 副标 (小 sans, opacity 0.7) 一行。
 - 底部可选 CTA chip 或 hairline + 元数据 row。
 
-【调色 — 4 选 1, 不要彩虹】
-- 🌅 **Solar Peach** — `#ffb18a` + `#f78b4c` + `#d97757`, 暖橙桃。
-- 🌊 **Ocean Aqua** — `#5ac8fa` + `#0a84ff` + `#1e3a8a`, 海蓝。
-- 🌌 **Aurora Violet** — `#a78bfa` + `#7c5cff` + `#1e1b4b`, 极光紫。
-- 🌿 **Forest Mint** — `#86efac` + `#34d399` + `#065f46`, 苔森林。
+【调色 - 4 选 1, 不要彩虹】
+- 🌅 **Solar Peach** - `#ffb18a` + `#f78b4c` + `#d97757`, 暖橙桃。
+- 🌊 **Ocean Aqua** - `#5ac8fa` + `#0a84ff` + `#1e3a8a`, 海蓝。
+- 🌌 **Aurora Violet** - `#a78bfa` + `#7c5cff` + `#1e1b4b`, 极光紫。
+- 🌿 **Forest Mint** - `#86efac` + `#34d399` + `#065f46`, 苔森林。
 
 【设计细节】
 - 严禁: 多色彩虹 (>4 个色相)、PowerPoint 渐变、霓虹荧光叠加。
